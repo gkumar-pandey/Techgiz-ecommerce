@@ -1,0 +1,169 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 1rem;
+}
+
+.logo_container {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+}
+
+.logo_container .menu_icon {
+  margin: 0 0.25rem;
+  cursor: pointer;
+  display: none;
+  font-size: 2rem;
+}
+
+.nav-logo {
+  font-family: sans;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.search_bar {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.25rem;
+}
+
+.search_bar button {
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+}
+.search_bar button .search_bar_icon {
+  font-size: 1rem;
+}
+
+.search_input {
+  width: 80%;
+  border: none;
+  font-size: 1rem;
+  padding: 0.25rem 0rem;
+}
+
+.search_input:focus {
+  outline: none;
+}
+
+.nav_links {
+  display: flex;
+}
+
+.nav_links .nav_link {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.nav_link div {
+  position: relative;
+}
+
+.nav_link .nav_link_icon {
+  font-size: 1.4rem;
+}
+
+.nav_links .nav_link span {
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.badge {
+  position: absolute;
+  border-radius: 100%;
+  font-size: 12px;
+  top: -5px;
+  right: -12px;
+  padding: 3px 6px;
+  background: red;
+  font-weight: bold;
+  color: white;
+}
+
+.sidenav {
+  position: absolute;
+  left: -300px;
+  top: 0;
+  background-color: #fff;
+  border-right: 1px solid #999;
+  height: 100vh;
+  width: 250px;
+}
+
+.sidenav-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav .sidenav-wrapper .sidenav_header {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidenav_header .sidenav_header_text {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.sidenav_header .sidenav_header_text span {
+  margin: 0 0.25rem;
+}
+
+.sidenav .sidenav-wrapper .sidenav_links {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+}
+
+.sidenav .sidenav-wrapper .sidenav_links button {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  text-align: justify;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+@media screen and (max-width: 64rem) {
+  .logo_container .menu_icon {
+    display: block;
+  }
+
+  .nav_link_icon_title,
+  .profile-icon .nav_link_icon {
+    display: none;
+  }
+
+  .sidenav.active {
+    left: 0px;
+  }
+}
+
+@media (max-width: 48rem) {
+  .search_bar {
+    display: none;
+  }
+}
