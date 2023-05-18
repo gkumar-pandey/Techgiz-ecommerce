@@ -1,0 +1,16 @@
+.solid-btn,
+.outlined-btn {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.solid-btn {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border: none;
+}
