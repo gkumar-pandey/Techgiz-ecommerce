@@ -1,0 +1,22 @@
+.login_form_container,
+.signup_form_container {
+  margin-top: 4rem;
+}
+
+.login_form,
+.signup_form {
+  flex-basis: 20rem;
+}
+
+.login_form_wrapper,
+.signup_form_wrapper {
+  padding: 1rem 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.login_form_title,
+.signup_form_title {
+  text-align: center;
+  padding: 0.25rem;
+  margin: 0.5rem 0;
+}
