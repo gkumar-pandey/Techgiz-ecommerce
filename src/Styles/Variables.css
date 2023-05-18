@@ -1,0 +1,6 @@
+:root {
+  --primary-color: #302f34;
+  --white-color: #fff;
+  --shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.1);
+  --nav-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+}
