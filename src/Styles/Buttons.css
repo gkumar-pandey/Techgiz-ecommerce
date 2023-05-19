@@ -14,3 +14,18 @@
   color: var(--white-color);
   border: none;
 }
+
+.solid-btn:hover {
+  background-color: var();
+}
+
+.outlined-btn {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  border: 1px solid gray;
+}
+
+.outlined-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}

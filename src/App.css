@@ -1,9 +1,9 @@
+@import "./Styles/Variables.css";
+@import "./Styles/Common.css";
+@import "./Styles/Buttons.css";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --primary-color: #302f34;
 }
