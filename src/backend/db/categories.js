@@ -18,11 +18,6 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Smart watch",
-    img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1684483649/TechGiz/smart-watch-category.jpg"
-  },
-  {
-    _id: uuid(),
     categoryName: "Noise Cancellation",
     img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1684483286/TechGiz/wired-category.jpg"
   },
