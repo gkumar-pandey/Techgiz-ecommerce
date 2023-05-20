@@ -19,7 +19,7 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "Noise Cancellation",
-    img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1684483286/TechGiz/wired-category.jpg"
+    img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1684482964/TechGiz/noise-cancellation-category.jpg"
   },
   {
     _id: uuid(),

@@ -30,6 +30,19 @@
   align-items: center;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* Grid CSS */
+.grid {
+  display: grid;
+}
+
+.grid-col-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 /* Width CSS */
 
 .w-full {
@@ -38,6 +51,14 @@
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
 
 .card-shadow {
@@ -49,3 +70,45 @@
   text-decoration: none;
 }
 /* container styles */
+
+/* Margin CSS */
+.m-1 {
+  margin: var(--m-1);
+}
+.mx-1 {
+  margin: 0 var(--m-1);
+}
+.my-1 {
+  margin: var(--m-1) 0;
+}
+.m-2 {
+  margin: var(--m-2);
+}
+.mx-2 {
+  margin: 0 var(--m-2);
+}
+.my-2 {
+  margin: var(--m-2) 0;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+/* Padding CSS */
+.p-1 {
+  padding: var(--p-1);
+}
+.px-1 {
+  padding: 0 var(--p-1);
+}
+.py-1 {
+  padding: var(--p-1) 0;
+}
+.p-4 {
+  padding: var(--p-4);
+}
+
+.py-4 {
+  padding: var(--p-4) 0;
+}
