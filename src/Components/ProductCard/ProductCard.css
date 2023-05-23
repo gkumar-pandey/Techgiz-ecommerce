@@ -1,0 +1,96 @@
+.product_card {
+  border: 1px solid lightgray;
+  margin: 0.5rem;
+  border-radius: 0.25rem;
+  width: 15rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.product_img_container {
+  overflow: hidden;
+  padding: 0.5rem;
+  height: 200px;
+}
+
+.product_img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all ease 0.2s;
+}
+
+.product_img:hover {
+  transform: scale(1.1);
+}
+
+.product_info {
+  padding: 0.5rem;
+}
+.product_name {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.25rem 0;
+  color: var(--primary-color);
+}
+
+.product_description {
+  display: -webkit-box;
+  color: gray;
+  font-size: 0.9rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.product_price {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.product_price::before,
+.product_old_price::before {
+  content: "₹";
+}
+
+.product_old_price {
+  font-weight: normal;
+  color: #858585;
+  font-size: 0.8rem;
+  text-decoration: line-through;
+  margin: 0 0.25rem;
+}
+.product_btn .icon {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0.25rem;
+}
+
+.wishlist_icon {
+  font-size: 2rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  cursor: pointer;
+  color: #858585;
+}
+
+.wishlist_icon:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .product_description {
+    -webkit-line-clamp: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .product_card {
+    width: auto;
+  }
+
+  .product_card {
+    margin: 0.25rem;
+  }
+}
