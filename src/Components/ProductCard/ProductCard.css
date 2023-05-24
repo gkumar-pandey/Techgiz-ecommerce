@@ -1,10 +1,10 @@
 .product_card {
   border: 1px solid lightgray;
-  margin: 0.5rem;
   border-radius: 0.25rem;
-  width: 15rem;
+  max-width: 15rem;
   overflow: hidden;
   position: relative;
+  margin: 1rem;
 }
 
 .product_img_container {
@@ -87,10 +87,6 @@
 
 @media (max-width: 500px) {
   .product_card {
-    width: auto;
-  }
-
-  .product_card {
-    margin: 0.25rem;
+    margin: 0;
   }
 }
