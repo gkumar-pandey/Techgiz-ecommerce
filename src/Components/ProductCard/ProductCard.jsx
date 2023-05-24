@@ -10,7 +10,8 @@ const ProductCard = ({
   price,
   oldPrice,
   discount,
-  rating
+  rating,
+  inStock
 }) => {
   return (
     <>
@@ -30,8 +31,12 @@ const ProductCard = ({
           <AiOutlineShoppingCart className="icon" />
           Add to cart
         </button>
-
         <AiOutlineHeart className="wishlist_icon" />
+        {!inStock && (
+          <div className="out_of_stock_label">
+            <p>Out of Stock</p>
+          </div>
+        )}
       </div>
     </>
   );
