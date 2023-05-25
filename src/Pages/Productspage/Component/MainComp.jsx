@@ -15,6 +15,15 @@ const MainComp = () => {
   let lastIndex = currPage * 9;
   let firstIndex = lastIndex - 9;
   const Products = products.slice(firstIndex, lastIndex);
+  const pageHandler = (pageNumber) => {
+    if (
+      pageNumber > 0 &&
+      pageNumber < pages.length + 1 &&
+      pageNumber !== currPage
+    ) {
+      setCurrPage(pageNumber);
+    }
+  };
 
   return (
     <>
@@ -26,7 +35,7 @@ const MainComp = () => {
       <div className="d-flex justify-center">
         <Pagination
           currPage={currPage}
-          setCurrPage={setCurrPage}
+          pageHandler={pageHandler}
           pages={pages}
         />
       </div>

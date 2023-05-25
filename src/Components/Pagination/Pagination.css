@@ -11,3 +11,7 @@
   background-color: var(--primary-color);
   color: #fff;
 }
+
+.arrow_icon {
+  font-weight: bold;
+}
