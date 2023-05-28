@@ -17,7 +17,7 @@ export const products = [
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684504768/TechGiz/product-1.jpg",
     description:
       "boAt Bassheads 242 in Ear Wired Earphones with Mic(Neon Green)",
-    price: "1800.00",
+    price: "1,800.00",
     oldPrice: "3000.00",
     inStock: true,
     discount: 18,
@@ -51,7 +51,7 @@ export const products = [
       " https://res.cloudinary.com/dlykup1dh/image/upload/v1684505400/TechGiz/product-3.png",
     description:
       "In-Ear Wired Earphone with 10mm Driver, Lightweight Design, Super Extra Bass, Passive Noise Cancellation",
-    price: "1290.00",
+    price: "1,290.00",
     oldPrice: "499.00",
     inStock: true,
     discount: 60,
@@ -67,8 +67,8 @@ export const products = [
     image:
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684505618/TechGiz/product-4.png",
     description: "boAt BassHeads 900 On-Ear Wired Headphone with Mic",
-    price: "2999.00",
-    oldPrice: "5999.00",
+    price: "2,999.00",
+    oldPrice: "5,999.00",
     inStock: true,
     discount: 50,
     rating: 4.8
@@ -84,8 +84,8 @@ export const products = [
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506112/TechGiz/product-5.png",
     description:
       "Wireless Earbuds with Massive Playback of upto 17 Hour, IPX5 Water & Sweat Resistance, IWP Technology, Type C Interface",
-    price: "1099.00",
-    oldPrice: "2490.00",
+    price: "1,099.00",
+    oldPrice: "2,490.00",
     inStock: true,
     discount: 56,
     rating: 4.9
@@ -100,8 +100,8 @@ export const products = [
     image:
       " https://res.cloudinary.com/dlykup1dh/image/upload/v1684506327/TechGiz/product-6.png",
     description: " 13 mm Drivers, Type-C Carry Case, 12 hours Nonstop Music",
-    price: "1399.00",
-    oldPrice: "2990.00",
+    price: "1,399.00",
+    oldPrice: "2,990.00",
     inStock: false,
     discount: 53,
     rating: 5.0
@@ -117,8 +117,8 @@ export const products = [
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506503/TechGiz/product-7.png",
     description:
       "Wireless Earbuds with 10mm Driver, Type C Interface, BEAST™ Mode & Voice Assistant, ENx Technology",
-    price: "1499.00",
-    oldPrice: "2990.00",
+    price: "1,499.00",
+    oldPrice: "2,990.00",
     inStock: true,
     discount: 50,
     rating: 3.8
@@ -134,8 +134,8 @@ export const products = [
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506752/TechGiz/product-8.png",
     description:
       "Wireless Earbuds with 40 Hours of Playtime, Beast Mode, RGB Lights Featuring ENx™ tech",
-    price: "1999.00",
-    oldPrice: "3499.00",
+    price: "1,999.00",
+    oldPrice: "3,499.00",
     inStock: true,
     discount: 43,
     rating: 3.9
@@ -151,8 +151,8 @@ export const products = [
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506752/TechGiz/product-9.png",
     description:
       "Bluetooth Earphone with 10mm drivers, Up to 40H Nonstop Playback, Type-C charging, ASAP Charge",
-    price: "1599.00",
-    oldPrice: "3990.00",
+    price: "1,599.00",
+    oldPrice: "3,990.00",
     inStock: true,
     discount: 60,
     rating: 4.5
@@ -169,7 +169,7 @@ export const products = [
     description:
       "Wireless Bluetooth Earphone with 12mm Dynamic Audio Drivers, Up to 8 Hours of Uninterrupted Music, Fast Charging",
     price: "999.00",
-    oldPrice: "2990.00",
+    oldPrice: "2,990.00",
     inStock: true,
     discount: 67,
     rating: 4.8
@@ -185,8 +185,8 @@ export const products = [
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506752/TechGiz/product-11.png",
     description:
       "Wireless Neckband Earphone with 11mm Premium Drivers, Uninterrupted music Upto 8 Hours, IPX7 Water Resistance",
-    price: "1199.00",
-    oldPrice: "4990.00",
+    price: "1,199.00",
+    oldPrice: "4,990.00",
     inStock: true,
     discount: 76,
     rating: 3.5
