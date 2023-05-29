@@ -3,4 +3,15 @@
   --white-color: #fff;
   --shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.1);
   --nav-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  --light-grey: #e7e7e7;
+  /* padding */
+  --p-1: 0.25rem;
+  --p-2: 0.5rem;
+  --p-3: 0.75rem;
+  --p-4: 1rem;
+
+  /* margin */
+  --m-1: 0.5rem;
+  --m-2: 1rem;
+  --m-3: 1.5rem;
 }

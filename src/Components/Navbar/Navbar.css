@@ -1,6 +1,10 @@
 nav {
   padding: 0.25rem 1rem;
   box-shadow: var(--nav-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #fff;
 }
 
 .logo_container {
@@ -88,6 +92,7 @@ nav {
   border-right: 1px solid #999;
   height: 100vh;
   width: 250px;
+  transition: all ease-in 0.3s;
 }
 
 .sidenav-wrapper {
