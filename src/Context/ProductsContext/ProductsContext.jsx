@@ -37,9 +37,10 @@ export const ProductsProvider = ({ children }) => {
     FilterReducer,
     filterInitialState
   );
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetchAllProducts(setProducts);
+    fetchAllProducts(setProducts, setIsLoading);
   }, []);
 
   const filterProducts = () => {
@@ -106,7 +107,13 @@ export const ProductsProvider = ({ children }) => {
 
   return (
     <ProductsContext.Provider
-      value={{ productsList, dispatchFilter, filterState }}
+      value={{
+        productsList,
+        dispatchFilter,
+        filterState,
+        isLoading,
+        setIsLoading
+      }}
     >
       {children}
     </ProductsContext.Provider>

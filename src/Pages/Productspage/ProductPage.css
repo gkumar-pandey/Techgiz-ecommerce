@@ -20,6 +20,12 @@
 
 .main {
   margin-left: 250px;
+  min-height: 100vh;
+}
+
+.loading {
+  height: 90vh;
+  font-size: 1.5rem;
 }
 
 .products_container {

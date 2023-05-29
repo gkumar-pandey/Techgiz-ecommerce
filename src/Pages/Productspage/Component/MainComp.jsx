@@ -5,7 +5,7 @@ import { Pagination } from "../../../Components/index";
 
 const MainComp = () => {
   const [currPage, setCurrPage] = useState(1);
-  const { productsList } = useProducts();
+  const { productsList, isLoading } = useProducts();
 
   //! Pagination logic implemented
   const pages = [];
@@ -27,18 +27,30 @@ const MainComp = () => {
 
   return (
     <>
-      <div className="products_container">
-        {Products.map((product) => (
-          <ProductCard key={product._id} {...product} />
-        ))}
-      </div>
-      <div className="d-flex justify-center">
-        <Pagination
-          currPage={currPage}
-          pageHandler={pageHandler}
-          pages={pages}
-        />
-      </div>
+      {isLoading ? (
+        <div className="d-flex  items-center justify-center loading ">
+          <h2>Loading...</h2>
+        </div>
+      ) : Products.length === 0 ? (
+        <div className="d-flex  items-center justify-center loading ">
+          <h2>Product not found!!</h2>
+        </div>
+      ) : (
+        <>
+          <div className="products_container">
+            {Products.map((product) => (
+              <ProductCard key={product._id} {...product} />
+            ))}
+          </div>
+          <div className="d-flex justify-center">
+            <Pagination
+              currPage={currPage}
+              pageHandler={pageHandler}
+              pages={pages}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 };
