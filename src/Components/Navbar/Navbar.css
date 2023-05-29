@@ -57,6 +57,7 @@ nav {
   justify-content: center;
   margin: 0.5rem 1rem;
   cursor: pointer;
+  color: black;
 }
 
 .nav_link div {
