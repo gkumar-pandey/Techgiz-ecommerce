@@ -22,33 +22,6 @@ nav {
   font-size: 1.5rem;
 }
 
-.search_bar {
-  width: 400px;
-  position: relative;
-  border: 1px solid var(--primary-color);
-  border-radius: 0.25rem;
-}
-
-.search_bar button {
-  border: none;
-  background-color: #fff;
-  padding: 0.25rem 0.5rem;
-}
-.search_bar button .search_bar_icon {
-  font-size: 1rem;
-}
-
-.search_input {
-  width: 80%;
-  border: none;
-  font-size: 1rem;
-  padding: 0.25rem 0rem;
-}
-
-.search_input:focus {
-  outline: none;
-}
-
 .nav_link {
   list-style: none;
   display: flex;
@@ -152,7 +125,7 @@ nav {
 }
 
 @media (max-width: 48rem) {
-  .search_bar {
+  .search {
     display: none;
   }
 }
