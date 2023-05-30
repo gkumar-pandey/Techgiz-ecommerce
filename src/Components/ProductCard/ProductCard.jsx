@@ -6,10 +6,6 @@ import {
   AiOutlineShoppingCart
 } from "react-icons/ai";
 import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
-import {
-  REMOVE_FROM_WISHLIST,
-  SET_ADD_TO_WISHLIST
-} from "../../Constant/WishlistConstant/WishlistConstant";
 import { getProductById } from "../../Utils";
 
 const ProductCard = (props) => {
@@ -28,16 +24,10 @@ const ProductCard = (props) => {
 
   const {
     dispatchWishlist,
+    addToWishlistHandler,
+    removeFromWishlistHandler,
     wishlistProductState: { products }
   } = useWishlist();
-
-  const addToWishlistHandler = () => {
-    dispatchWishlist({ type: SET_ADD_TO_WISHLIST, payload: props });
-  };
-
-  const removeFromWishlistHandler = () => {
-    dispatchWishlist({ type: REMOVE_FROM_WISHLIST, payload: _id });
-  };
 
   const isProdAvailableInWishlist = getProductById(products, _id);
 
@@ -62,12 +52,12 @@ const ProductCard = (props) => {
         {isProdAvailableInWishlist ? (
           <AiFillHeart
             className="wishlist_icon"
-            onClick={removeFromWishlistHandler}
+            onClick={() => removeFromWishlistHandler(_id, productName)}
           />
         ) : (
           <AiOutlineHeart
             className="wishlist_icon"
-            onClick={addToWishlistHandler}
+            onClick={() => addToWishlistHandler(props)}
           />
         )}
 
