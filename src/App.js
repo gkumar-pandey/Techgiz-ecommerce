@@ -10,6 +10,9 @@ import ProductsPage from "./Pages/Productspage/ProductsPage";
 import LoginPage from "./Pages/Authpages/LoginPage/LoginPage";
 import SignUpPage from "./Pages/Authpages/SignUpPage/SignUpPage";
 import WishlistPage from "./Pages/WishlistPage/WishlistPage";
+ 
+ 
+ 
 
 function App() {
   return (

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { BiSearch } from "react-icons/bi";
 import { IoMenu } from "react-icons/io5";
 import {
   AiOutlineUser,
@@ -10,6 +9,8 @@ import {
 import MobileNavigation from "./MobileNavigation";
 import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
 import { Link } from "react-router-dom";
+import Search from "../Search/Search";
+ 
 
 const Navbar = () => {
   const [showSideNavbar, setShowNavbar] = useState(false);
@@ -31,11 +32,8 @@ const Navbar = () => {
           />
           <h3 className="nav-logo cursor-pointer ">TechGiz</h3>
         </div>
-        <div className=" d-flex items-center search_bar">
-          <button className="d-flex items-center justify-center">
-            <BiSearch className="search_bar_icon" />
-          </button>
-          <input className="search_input" type="text" placeholder="Search..." />
+        <div className="search">
+          <Search />
         </div>
         <div>
           <ul className="d-flex">
