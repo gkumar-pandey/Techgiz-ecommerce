@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./WishlistPage.css";
 import GridContainer from "../../Components/GridContainer/GridContainer";
 import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
+import { getWishlistProducts } from "../../Services";
 
 const WishlistPage = () => {
   const {
-    wishlistProductState: { products }
+    wishlistProductState: { products },
+    dispatchWishlist,
+    isUserLoggedIn
   } = useWishlist();
+
+  useEffect(() => {
+    if (isUserLoggedIn) {
+      getWishlistProducts(dispatchWishlist);
+    }
+  }, []);
+
   return (
     <div className="wishlist_container">
       <div className="wishlist_wrapper">
