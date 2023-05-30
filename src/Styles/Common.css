@@ -49,6 +49,10 @@
   width: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

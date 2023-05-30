@@ -14,6 +14,7 @@ const Pagination = ({ pages, pageHandler, currPage }) => {
       </button>
       {pages.map((item, idx) => (
         <button
+          key={idx}
           onClick={() => pageHandler(item)}
           className={`pagination_btn ${item === currPage && "active"}`}
         >

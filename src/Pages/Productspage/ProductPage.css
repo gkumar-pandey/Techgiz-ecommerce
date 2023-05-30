@@ -6,6 +6,10 @@
   position: relative;
 }
 
+.md_search {
+  display: none;
+}
+
 .sidebar {
   border-right: 1px solid #858585;
   width: 250px;
@@ -16,6 +20,12 @@
 
 .main {
   margin-left: 250px;
+  min-height: 100vh;
+}
+
+.loading {
+  height: 90vh;
+  font-size: 1.5rem;
 }
 
 .products_container {
@@ -39,12 +49,24 @@
 @media (max-width: 768px) {
   .products_container {
     width: 100%;
+    padding-top: 2.5rem;
   }
+
   .sidebar {
     display: none;
   }
   .main {
     margin-left: 0;
+  }
+  .md_search {
+    display: block;
+    padding: 0.5rem;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
   }
 }
 
