@@ -1,8 +1,9 @@
 import React from "react";
-import { Input } from "../../../Components";
-import { useAuth } from "../../../Context/AuthContext/AuthContext";
 import { Link } from "react-router-dom";
+
 import { RiArrowDropRightLine } from "react-icons/ri";
+import { BiErrorCircle } from "react-icons/bi";
+import { Input } from "../../../Components";
 import {
   SET_CONFIRM_PASSWORD,
   SET_EMAIL,
@@ -10,18 +11,22 @@ import {
   SET_LAST_NAME,
   SET_PASSWORD
 } from "../../../Constant";
+import { useAuth } from "../../../Context";
 
-const Signuppage = () => {
+const SignUpPage = () => {
   const {
     userState: {
-      user: { firstName, lastName, email, password, confirmPassword }
+      user: { firstName, lastName, email, password, confirmPassword },
+      signUpError,
+      isLoading
     },
-    dispatchUser
+    dispatchUser,
+    signupHandler
   } = useAuth();
 
   return (
     <div className="d-flex justify-center items-center signup_form_container">
-      <form className="signup_form card-shadow">
+      <form onSubmit={signupHandler} className="signup_form card-shadow">
         <div className="signup_form_wrapper">
           <div className="signup_form_title">
             <h2>Signup</h2>
@@ -76,8 +81,9 @@ const Signuppage = () => {
               }
             />
           </div>
+
           <button type="submit" className=" w-full solid-btn">
-            Signup
+            {isLoading ? "Loading..." : "Signup"}
           </button>
           <div className="d-flex justify-center items-center ">
             <Link className="link sign_up_link " to={"/login"}>
@@ -85,10 +91,18 @@ const Signuppage = () => {
             </Link>
             <RiArrowDropRightLine className="icon" />
           </div>
+          {signUpError && (
+            <p className="auth_error    ">
+              <span>
+                <BiErrorCircle className="auth_error_icon  " />
+              </span>
+              <span>{signUpError}</span>
+            </p>
+          )}
         </div>
       </form>
     </div>
   );
 };
 
-export default Signuppage;
+export default SignUpPage;
