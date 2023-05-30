@@ -6,7 +6,7 @@ import {
 export const WishlistReducer = (state, { type, payload }) => {
   switch (type) {
     case SET_ADD_TO_WISHLIST:
-      return { ...state, products: [...state.products, payload] };
+      return { ...state, products: payload };
     case REMOVE_FROM_WISHLIST:
       return {
         ...state,
