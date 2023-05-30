@@ -3,21 +3,41 @@ import { Input } from "../../../Components";
 import "./../authpage.css";
 import { Link } from "react-router-dom";
 import { RiArrowDropRightLine } from "react-icons/ri";
+import { BiErrorCircle } from "react-icons/bi";
 import { useAuth } from "../../../Context/AuthContext/AuthContext";
-import { SAVE_USER, SET_EMAIL, SET_PASSWORD } from "../../../Constant/index.js";
+import {
+  SAVE_USER,
+  SET_LOGIN_EMAIL,
+  SET_LOGIN_PASSWORD
+} from "../../../Constant/index.js";
 
 const LoginPage = () => {
   const {
-    user: {
-      user: { email, password }
+    userState: {
+      loginUser: { email, password },
+      loginError,
+      isLoading,
+      isSaveUser
     },
     dispatchUser,
-    loginBtnHandler
+    loginHandler
   } = useAuth();
+
+  //* guest user obj for test credential login */
+  const guestUser = {
+    email: "gautamshekhar078@gmail.com",
+    password: "Gautam#123"
+  };
+
+  const loginWithTestCredentialHandler = () => {
+    dispatchUser({ type: SET_LOGIN_EMAIL, payload: guestUser.email });
+    dispatchUser({ type: SET_LOGIN_PASSWORD, payload: guestUser.password });
+    dispatchUser({ type: SAVE_USER, payload: true });
+  };
 
   return (
     <div className=" d-flex justify-center items-center login_form_container">
-      <form className="login_form card-shadow ">
+      <form onSubmit={loginHandler} className="login_form card-shadow ">
         <div className="login_form_wrapper">
           <div className="login_form_title">
             <h2>Login</h2>
@@ -29,14 +49,17 @@ const LoginPage = () => {
               label={"Email address"}
               type={"email"}
               onChange={(e) =>
-                dispatchUser({ type: SET_EMAIL, payload: e.target.value })
+                dispatchUser({ type: SET_LOGIN_EMAIL, payload: e.target.value })
               }
             />
             <Input
               type={"password"}
               value={password}
               onChange={(e) =>
-                dispatchUser({ type: SET_PASSWORD, payload: e.target.value })
+                dispatchUser({
+                  type: SET_LOGIN_PASSWORD,
+                  payload: e.target.value
+                })
               }
               placeholder={"Enter your Password"}
               label={"Password"}
@@ -45,6 +68,7 @@ const LoginPage = () => {
           <div>
             <input
               className="cursor-pointer"
+              checked={isSaveUser}
               type="checkbox"
               onChange={(e) =>
                 dispatchUser({ type: SAVE_USER, payload: e.target.checked })
@@ -52,16 +76,23 @@ const LoginPage = () => {
             />{" "}
             <span>Remember me</span>
           </div>
-          <button className="outlined-btn w-full ">
-            Login with test credentials
-          </button>
+
           <button
             type="submit"
-            className="solid-btn w-full "
-            onClick={loginBtnHandler}
+            className="outlined-btn w-full "
+            onClick={loginWithTestCredentialHandler}
           >
-            Login
+            Login with test credentials
           </button>
+          <button type="submit" className="solid-btn w-full ">
+            {isLoading ? "Loading.." : "Login"}
+          </button>
+          {loginError && (
+            <p className="d-flex justify-center items-center auth_error ">
+              {" "}
+              <BiErrorCircle className="auth_error_icon" /> {loginError}
+            </p>
+          )}
           <div className=" d-flex justify-center items-center w-full">
             <Link className="link sign_up_link" to={"/signup"}>
               Create New Account
