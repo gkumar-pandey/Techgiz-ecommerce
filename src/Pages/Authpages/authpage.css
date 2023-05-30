@@ -31,3 +31,17 @@
   font-size: 1.6rem;
   font-weight: bold;
 }
+
+.auth_error {
+  font-size: 1rem;
+  font-weight: 600;
+  color: red;
+  text-align: initial;
+  padding: 0.25rem;
+}
+
+.auth_error_icon {
+  font-size: 1.2rem;
+  margin: 0 4px;
+  font-weight: bold;
+}

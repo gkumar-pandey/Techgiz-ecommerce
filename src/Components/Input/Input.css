@@ -13,3 +13,28 @@
   font-size: 1rem;
   width: 100%;
 }
+
+.password_input {
+  border: 1px solid grey;
+}
+.password_input input {
+  border: none;
+  flex: 1;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+}
+.password_input input:focus {
+  outline: none;
+}
+
+.eye_icon {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+}
