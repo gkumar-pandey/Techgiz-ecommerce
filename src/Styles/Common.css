@@ -85,6 +85,14 @@
 .my-1 {
   margin: var(--m-1) 0;
 }
+
+.ml-1 {
+  margin-left: var(--m-1);
+}
+.mr-1 {
+  margin-right: var(--m-1);
+}
+
 .m-2 {
   margin: var(--m-2);
 }
@@ -93,6 +101,12 @@
 }
 .my-2 {
   margin: var(--m-2) 0;
+}
+.mr-2 {
+  margin-right: var(--m-2);
+}
+.ml-2 {
+  margin-left: var(--m-2);
 }
 
 .m-auto {
@@ -113,6 +127,14 @@
   padding: var(--p-4);
 }
 
+.px-4 {
+  padding: var(--p-4);
+}
+
 .py-4 {
   padding: var(--p-4) 0;
+}
+
+.border {
+  border: 1px solid red;
 }
