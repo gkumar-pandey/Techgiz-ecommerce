@@ -5,10 +5,12 @@ import Home from "./Pages/Home/Home";
 import { Navbar } from "./Components";
 
 import { Toaster } from "react-hot-toast";
-import SignUpPage from "./Pages/Authpages/SignUpPage/SignUpPage";
-import LoginPage from "./Pages/Authpages/LoginPage/LoginPage";
+
 import ProductsPage from "./Pages/Productspage/ProductsPage";
 import CartPage from "./Pages/CartPage/CartPage";
+import LoginPage from "./Pages/Authpages/LoginPage/LoginPage";
+import SignUpPage from "./Pages/Authpages/SignUpPage/SignUpPage";
+import WishlistPage from "./Pages/WishlistPage/WishlistPage";
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
       </Routes>
     </div>
   );

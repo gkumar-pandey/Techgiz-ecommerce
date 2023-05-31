@@ -1,18 +1,36 @@
 import React from "react";
 import "./ProductCard.css";
-import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import {
+  AiFillHeart,
+  AiOutlineHeart,
+  AiOutlineShoppingCart
+} from "react-icons/ai";
+import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
+import { getProductById } from "../../Utils";
 
-const ProductCard = ({
-  productName,
-  image,
-  alt,
-  description,
-  price,
-  oldPrice,
-  discount,
-  rating,
-  inStock
-}) => {
+const ProductCard = (props) => {
+  const {
+    productName,
+    image,
+    alt,
+    description,
+    price,
+    oldPrice,
+    discount,
+    rating,
+    inStock,
+    _id
+  } = props;
+
+  const {
+    dispatchWishlist,
+    addToWishlistHandler,
+    removeFromWishlistHandler,
+    wishlistProductState: { products }
+  } = useWishlist();
+
+  const isProdAvailableInWishlist = getProductById(products, _id);
+
   return (
     <>
       <div className="product_card px-1 d-flex flex-col justify-between ">
@@ -31,7 +49,18 @@ const ProductCard = ({
           <AiOutlineShoppingCart className="icon" />
           Add to cart
         </button>
-        <AiOutlineHeart className="wishlist_icon" />
+        {isProdAvailableInWishlist ? (
+          <AiFillHeart
+            className="wishlist_icon"
+            onClick={() => removeFromWishlistHandler(_id, productName)}
+          />
+        ) : (
+          <AiOutlineHeart
+            className="wishlist_icon"
+            onClick={() => addToWishlistHandler(props)}
+          />
+        )}
+
         {!inStock && (
           <div className="out_of_stock_label">
             <p>Out of Stock</p>

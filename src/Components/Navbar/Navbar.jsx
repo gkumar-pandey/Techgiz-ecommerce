@@ -7,10 +7,16 @@ import {
   AiOutlineShoppingCart
 } from "react-icons/ai";
 import MobileNavigation from "./MobileNavigation";
+import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
+import { Link } from "react-router-dom";
 import Search from "../Search/Search";
+ 
 
 const Navbar = () => {
   const [showSideNavbar, setShowNavbar] = useState(false);
+  const {
+    wishlistProductState: { products }
+  } = useWishlist();
 
   const HandleSideNavbar = () => {
     setShowNavbar(!showSideNavbar);
@@ -35,13 +41,13 @@ const Navbar = () => {
               <AiOutlineUser className="nav_link_icon" />
               <span className="nav_link_icon_title">Login</span>
             </li>
-            <li className="nav_link">
+            <Link to={"/wishlist"} className="link nav_link">
               <div>
-                <p className="badge">9</p>
+                <p className="badge">{products.length}</p>
                 <AiOutlineHeart className="nav_link_icon" />
               </div>
               <span className="nav_link_icon_title">Wishlist</span>
-            </li>
+            </Link>
             <li className="nav_link">
               <div>
                 <AiOutlineShoppingCart className="nav_link_icon" />

@@ -5,3 +5,4 @@ export * from "./filters/getFilterDataByPriceRange";
 export * from "./filters/getSortedData";
 export * from "./filters/getFilterDataByStock";
 export * from "./Auth/authValidation.js";
+export * from "./Wishlist/getProductById";
