@@ -1,0 +1,10 @@
+.empty_text {
+  margin: 1rem 0;
+  padding: 1rem 0;
+}
+
+.empty_text h2 {
+  margin: 0.5rem 0;
+  color: var(--primary-color);
+  font-family: sans-serif;
+}
