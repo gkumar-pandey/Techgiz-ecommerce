@@ -6,7 +6,10 @@ const HorizontalProductCard = (props) => {
     cartState: { products },
     removeFromCartHandler
   } = useCart();
-  const { productName, image, alt, price, oldPrice, discount, _id } = props;
+  const { productName, image, alt, price, oldPrice, discount, _id, qty } =
+    props;
+
+  const { updateCartQtyHandler } = useCart();
 
   return (
     <div className="horizontal_product m-1 ">
@@ -26,11 +29,21 @@ const HorizontalProductCard = (props) => {
           <div className="d-flex py-1 flex-row items-center ">
             <p>Quantity</p>
             <div className=" d-flex justify-center items-center mx-1 ">
-              <button className=" inc_dec_btn d-flex items-center justify-center ">
+              <button
+                onClick={() =>
+                  updateCartQtyHandler(_id, productName, "decrement")
+                }
+                className=" inc_dec_btn d-flex items-center justify-center cursor-pointer "
+              >
                 -
               </button>
-              <span className=" px-1 product_qty ">{3}</span>
-              <button className=" inc_dec_btn d-flex items-center justify-center ">
+              <span className=" px-1 product_qty ">{qty}</span>
+              <button
+                onClick={() =>
+                  updateCartQtyHandler(_id, productName, "increment")
+                }
+                className=" inc_dec_btn d-flex items-center justify-center cursor-pointer "
+              >
                 +
               </button>
             </div>

@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import { CartReducer } from "../../Reducer/CartReducer/CartReducer";
-import { addToCart, removeFromCart } from "../../Services";
+import { addToCart, removeFromCart, updateCartItemQty } from "../../Services";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
@@ -28,6 +28,12 @@ export const CartContextProvider = ({ children }) => {
       navigate("/login");
     }
   };
+
+  const updateCartQtyHandler = (productId, productName, type) => {
+    if (isUserLoggedIn) {
+      updateCartItemQty(productId, productName, type, dispatchCart);
+    }
+  };
   return (
     <CartContext.Provider
       value={{
@@ -36,7 +42,8 @@ export const CartContextProvider = ({ children }) => {
         cartState,
         addToCart,
         addToCartHandler,
-        removeFromCartHandler
+        removeFromCartHandler,
+        updateCartQtyHandler
       }}
     >
       {children}
