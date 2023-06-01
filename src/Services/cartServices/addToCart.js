@@ -16,10 +16,12 @@ export const addToCart = async (product, dispatchCart) => {
     );
     if (status === 201) {
       dispatchCart({ type: SET_ADD_TO_CART, payload: data.cart });
+      toast.success(`${product.productName} added to cart 🛒`);
     } else {
       toast.error("Something went wrong!!");
     }
   } catch (error) {
-    console.log(error);
+    console.error(error.message);
+    toast.error(error.message);
   }
 };

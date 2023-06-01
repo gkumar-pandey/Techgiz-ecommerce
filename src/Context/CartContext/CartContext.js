@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import { CartReducer } from "../../Reducer/CartReducer/CartReducer";
-import { addToCart } from "../../Services";
+import { addToCart, removeFromCart } from "../../Services";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
@@ -16,12 +16,14 @@ export const CartContextProvider = ({ children }) => {
 
   const addToCartHandler = (product) => {
     if (isUserLoggedIn) {
-      const res = addToCart(product, dispatchCart);
-      toast.promise(res, {
-        loading: "Loading..",
-        success: `${product.productName} added to cart `,
-        error: "Something went wrong!!"
-      });
+      addToCart(product, dispatchCart);
+    } else {
+      navigate("/login");
+    }
+  };
+  const removeFromCartHandler = (product) => {
+    if (isUserLoggedIn) {
+      removeFromCart(product._id, product.productName, dispatchCart);
     } else {
       navigate("/login");
     }
@@ -33,7 +35,8 @@ export const CartContextProvider = ({ children }) => {
         isUserLoggedIn,
         cartState,
         addToCart,
-        addToCartHandler
+        addToCartHandler,
+        removeFromCartHandler
       }}
     >
       {children}
