@@ -5,7 +5,7 @@ import "./EmptyMsgComp.css";
 const EmptyMsgComp = ({ msg }) => {
   return (
     <>
-      <div className="d-flex justify-center items-center flex-col empty_text ">
+      <div className="d-flex justify-center items-center flex-col empty_text  ">
         <h2>{msg}</h2>
         <p>
           Explore more products, <Link to={"/products"}>Continue Shopping</Link>
