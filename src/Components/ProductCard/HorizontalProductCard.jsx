@@ -2,15 +2,11 @@ import React from "react";
 import "./ProductCard.css";
 import { useCart } from "../../Context";
 const HorizontalProductCard = (props) => {
-  const {
-    cartState: { products },
-    removeFromCartHandler
-  } = useCart();
-  const { productName, image, alt, price, oldPrice, discount, _id, qty } =
-    props;
-
+  const { removeFromCartHandler } = useCart();
   const { updateCartQtyHandler } = useCart();
 
+  const { productName, image, alt, price, oldPrice, discount, _id, qty } =
+    props;
   return (
     <div className="horizontal_product m-1 ">
       <div className="horizontal_product_wrapper d-flex ">
