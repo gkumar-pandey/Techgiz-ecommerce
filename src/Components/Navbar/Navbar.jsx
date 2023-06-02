@@ -31,7 +31,9 @@ const Navbar = () => {
             className="d-none menu_icon cursor-pointer "
             onClick={HandleSideNavbar}
           />
-          <h3 className="nav-logo cursor-pointer ">TechGiz</h3>
+          <Link to={"/"} className="link">
+            <h3 className="nav-logo cursor-pointer ">TechGiz</h3>
+          </Link>
         </div>
         <div className="search">
           <Search />
