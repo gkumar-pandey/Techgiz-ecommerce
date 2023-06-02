@@ -1,6 +1,7 @@
 import WishlistPage from "./WishlistPage/WishlistPage";
+import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
 export * from "./Home/Home";
 export * from "./Authpages/index";
 export * from "./Productspage/ProductsPage";
 
-export { WishlistPage };
+export { WishlistPage, ProductDetailsPage };
