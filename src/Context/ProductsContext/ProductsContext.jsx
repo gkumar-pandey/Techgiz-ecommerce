@@ -112,7 +112,8 @@ export const ProductsProvider = ({ children }) => {
         dispatchFilter,
         filterState,
         isLoading,
-        setIsLoading
+        setIsLoading,
+        products
       }}
     >
       {children}
