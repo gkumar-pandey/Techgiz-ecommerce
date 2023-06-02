@@ -1,78 +1,102 @@
-import React from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import { TbTruckDelivery } from "react-icons/tb";
-import { BsCashStack } from "react-icons/bs";
-import { FaExchangeAlt } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+
 import "./ProductDetails.css";
-import Rating from "./Components/Rating";
-import SimilarProductsComp from "./Components/SimilarProductsComp";
+import { getSingleProduct } from "../../Services";
+import { useAuth, useCart, useWishlist } from "../../Context";
+import { getProductById } from "../../Utils";
+import { SET_ADD_TO_CART, SET_ADD_TO_WISHLIST } from "../../Constant";
+import { Loader, ProductDetails } from "../../Components";
+import SimilarProdComp from "./Components/SimilarProdComp";
 
 const ProductDetailsPage = () => {
-  const product = {
-    brand: "boat",
-    type: "Wired",
-    addedInYear: 2022,
-    alt: "boAt BassHeads 225",
-    productName: "boAt BassHeads 225",
-    image:
-      "https://res.cloudinary.com/dlykup1dh/image/upload/v1684504951/TechGiz/product-2.jpg",
-    description:
-      "Wired Earphone having 10mm Driver, Passive Noise Cancellation, Polished Metal Design, Hands-free communication",
-    price: "699.00",
-    oldPrice: "999.00",
-    inStock: true,
-    discount: 30,
-    rating: 4.9
+  const [product, setProduct] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { id } = useParams();
+  const {
+    dispatchCart,
+    cartState: { products }
+  } = useCart();
+  const { isUserLoggedIn, encodedToken } = useAuth();
+  const { dispatchWishlist, wishlistProductState } = useWishlist();
+  const isProductInCart = getProductById(products, product?._id);
+  const isProductInWishlist = getProductById(
+    wishlistProductState.products,
+    product?._id
+  );
+  const navigate = useNavigate();
+  window.scrollTo(0, 0);
+
+  useEffect(() => {
+    getSingleProduct(id, setProduct, setIsLoading);
+  }, [id]);
+
+  const handleAddToCart = async () => {
+    if (isUserLoggedIn) {
+      try {
+        const { data, status } = await axios.post(
+          "/api/user/cart",
+          { product },
+          {
+            headers: {
+              authorization: encodedToken
+            }
+          }
+        );
+        if (status === 201) {
+          dispatchCart({ type: SET_ADD_TO_CART, payload: data.cart });
+          toast.success(`${product.productName} added to cart 🛒`);
+        } else {
+          toast.error("Error,something went wrong!!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      navigate("/login");
+    }
   };
+
+  const handleAddToWishlist = async () => {
+    if (isUserLoggedIn) {
+      try {
+        const { data, status } = await axios.post(
+          "/api/user/wishlist",
+          { product },
+          { headers: { authorization: encodedToken } }
+        );
+        if (status === 201) {
+          dispatchWishlist({
+            type: SET_ADD_TO_WISHLIST,
+            payload: data.wishlist
+          });
+          toast.success(`${product.productName} added to wishlist`);
+        }
+      } catch (error) {
+        toast.error("Error, something went wrong!!");
+      }
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
-    <div className="  d-flex justify-center items-center   product_details ">
-      <div className="product_container  ">
-        <div className="product_details_wrapper d-flex   ">
-          <div className="product_details_img">
-            <img src={product.image} alt={product.alt} />
-          </div>
-          <div className="product_details_info">
-            <div>
-              <p className="product_details_name">{product.productName}</p>
-              <p className="product_details_desc">{product.description}</p>
-              <div>
-                <Rating rating={product.rating} />
-              </div>
-            </div>
-            <div className="product_details_price_info ">
-              <span className="product_details_price">{product.price}</span>{" "}
-              <span className="product_details_old_price">
-                {product.oldPrice}
-              </span>
-              <span className="product_details_discount">
-                ({product.discount}% off)
-              </span>
-              <p className="inclusive_text my-1 ">
-                Price inclusive of all taxes
-              </p>
-              <div>
-                <button className=" solid-btn ">Add to cart</button>
-                <button className=" outlined-btn ">Add to wishlist</button>
-              </div>
-            </div>
-            <div>
-              <p>100% original product </p>
-              <p className="text_icon">
-                <TbTruckDelivery className="icon" />
-                <span>Fast delivery </span>
-              </p>
-              <p className="text_icon">
-                <BsCashStack className="icon" />
-                <span>Cash on delivery available</span>
-              </p>
-              <p className="text_icon">
-                <FaExchangeAlt className="icon" />
-                <span>7 days exchange available</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <SimilarProductsComp type={product.type} brand={product.brand} />
+    <div className="d-flex justify-center items-center   product_details ">
+      <div className="product_container">
+        {!isLoading ? (
+          <ProductDetails
+            product={product}
+            handleAddToCart={handleAddToCart}
+            handleAddToWishlist={handleAddToWishlist}
+            isProductInCart={isProductInCart}
+            isProductInWishlist={isProductInWishlist}
+          />
+        ) : (
+          <Loader />
+        )}
+        <SimilarProdComp type={product?.type} brand={product?.brand} />
       </div>
     </div>
   );

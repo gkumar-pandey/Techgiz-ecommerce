@@ -4,6 +4,8 @@ import Pagination from "./Pagination/Pagination";
 import EmptyMsgComp from "./EmptyCartMsg/EmptyMsgComp";
 import HorizontalProductCard from "./ProductCard/HorizontalProductCard";
 import Loader from "./Loader/Loader";
+import ProductDetails from "./ProductDetails/ProductDetails";
+import Rating from "./Rating/Rating";
 
 export {
   Navbar,
@@ -11,5 +13,7 @@ export {
   Pagination,
   EmptyMsgComp,
   HorizontalProductCard,
-  Loader
+  Loader,
+  ProductDetails,
+  Rating
 };

@@ -58,9 +58,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const isUserLoggedIn = localStorage.getItem("user");
+  const encodedToken = JSON.parse(isUserLoggedIn).token;
+
   return (
     <AuthContext.Provider
-      value={{ userState, dispatchUser, signupHandler, loginHandler }}
+      value={{
+        userState,
+        dispatchUser,
+        signupHandler,
+        loginHandler,
+        isUserLoggedIn,
+        encodedToken
+      }}
     >
       {children}
     </AuthContext.Provider>

@@ -1,8 +1,17 @@
 import WishlistPage from "./WishlistPage/WishlistPage";
 import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
 import CartPage from "./CartPage/CartPage";
-export * from "./Home/Home";
-export * from "./Authpages/index";
-export * from "./Productspage/ProductsPage";
+import Home from "./Home/Home";
+import LoginPage from "./Authpages/LoginPage/LoginPage";
+import SignUpPage from "./Authpages/SignUpPage/SignUpPage";
+import ProductsPage from "./Productspage/ProductsPage";
 
-export { WishlistPage, ProductDetailsPage };
+export {
+  Home,
+  WishlistPage,
+  ProductDetailsPage,
+  CartPage,
+  LoginPage,
+  SignUpPage,
+  ProductsPage
+};

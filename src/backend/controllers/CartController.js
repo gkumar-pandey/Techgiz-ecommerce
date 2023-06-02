@@ -18,7 +18,7 @@ export const getCartItemsHandler = function (schema, request) {
       404,
       {},
       {
-        errors: ["The email you entered is not Registered. Not Found error"],
+        errors: ["The email you entered is not Registered. Not Found error"]
       }
     );
   }
@@ -40,7 +40,7 @@ export const addItemToCartHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ["The email you entered is not Registered. Not Found error"]
         }
       );
     }
@@ -50,7 +50,7 @@ export const addItemToCartHandler = function (schema, request) {
       ...product,
       createdAt: formatDate(),
       updatedAt: formatDate(),
-      qty: 1,
+      qty: 1
     });
     this.db.users.update({ _id: userId }, { cart: userCart });
     return new Response(201, {}, { cart: userCart });
@@ -59,7 +59,7 @@ export const addItemToCartHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }
@@ -78,7 +78,7 @@ export const removeItemFromCartHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ["The email you entered is not Registered. Not Found error"]
         }
       );
     }
@@ -92,7 +92,7 @@ export const removeItemFromCartHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }
@@ -113,7 +113,7 @@ export const updateCartItemHandler = function (schema, request) {
         404,
         {},
         {
-          errors: ["The email you entered is not Registered. Not Found error"],
+          errors: ["The email you entered is not Registered. Not Found error"]
         }
       );
     }
@@ -141,7 +141,7 @@ export const updateCartItemHandler = function (schema, request) {
       500,
       {},
       {
-        error,
+        error
       }
     );
   }
