@@ -10,13 +10,14 @@ import MobileNavigation from "./MobileNavigation";
 import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
 import { Link } from "react-router-dom";
 import Search from "../Search/Search";
- 
+import { useCart } from "../../Context";
 
 const Navbar = () => {
   const [showSideNavbar, setShowNavbar] = useState(false);
   const {
     wishlistProductState: { products }
   } = useWishlist();
+  const { cartState } = useCart();
 
   const HandleSideNavbar = () => {
     setShowNavbar(!showSideNavbar);
@@ -48,13 +49,13 @@ const Navbar = () => {
               </div>
               <span className="nav_link_icon_title">Wishlist</span>
             </Link>
-            <li className="nav_link">
+            <Link to={"/cart"} className=" link nav_link">
               <div>
                 <AiOutlineShoppingCart className="nav_link_icon" />
-                <p className="badge">9</p>
+                <p className="badge">{cartState.products.length}</p>
               </div>
               <span className="nav_link_icon_title">Cart</span>
-            </li>
+            </Link>
           </ul>
         </div>
         <MobileNavigation

@@ -7,6 +7,8 @@ import {
 } from "react-icons/ai";
 import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
 import { getProductById } from "../../Utils";
+import { useCart } from "../../Context";
+import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
   const {
@@ -23,13 +25,14 @@ const ProductCard = (props) => {
   } = props;
 
   const {
-    dispatchWishlist,
     addToWishlistHandler,
     removeFromWishlistHandler,
     wishlistProductState: { products }
   } = useWishlist();
+  const { cartState, addToCartHandler } = useCart();
 
   const isProdAvailableInWishlist = getProductById(products, _id);
+  const isProdAvailableInCart = getProductById(cartState.products, _id);
 
   return (
     <>
@@ -45,10 +48,22 @@ const ProductCard = (props) => {
             {price} <span className="product_old_price">{oldPrice}</span>
           </p>
         </div>
-        <button className="product_btn d-flex items-center justify-center w-full solid-btn">
-          <AiOutlineShoppingCart className="icon" />
-          Add to cart
-        </button>
+        {isProdAvailableInCart ? (
+          <Link to={"/cart"} className="link">
+            <button className="product_btn d-flex items-center justify-center w-full solid-btn">
+              Go to cart
+            </button>
+          </Link>
+        ) : (
+          <button
+            onClick={() => addToCartHandler(props)}
+            className="product_btn d-flex items-center justify-center w-full solid-btn"
+          >
+            <AiOutlineShoppingCart className="icon" />
+            Add to cart
+          </button>
+        )}
+
         {isProdAvailableInWishlist ? (
           <AiFillHeart
             className="wishlist_icon"
