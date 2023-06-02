@@ -1,19 +1,22 @@
 import React from "react";
 import "./ProductCard.css";
 import { useCart } from "../../Context";
+import { Link } from "react-router-dom";
+
 const HorizontalProductCard = (props) => {
-  const { removeFromCartHandler } = useCart();
-  const { updateCartQtyHandler } = useCart();
+  const { removeFromCartHandler, updateCartQtyHandler } = useCart();
 
   const { productName, image, alt, price, oldPrice, discount, _id, qty } =
     props;
   return (
     <div className="horizontal_product m-1 ">
       <div className="horizontal_product_wrapper d-flex ">
-        <div className="horizontal_product_img p-1 ">
-          <img src={image} alt={alt} />
-        </div>
-        <div className="horizontal_product_info m-1">
+        <Link to={`/product/${_id}`}>
+          <div className="horizontal_product_img p-1 ">
+            <img src={image} alt={alt} />
+          </div>
+        </Link>
+        <div className="horizontal_product_info m-1  ">
           <p className=" product_name ">{productName}</p>
           <div>
             <span className="product_price">{price}</span>

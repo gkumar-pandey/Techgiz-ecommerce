@@ -37,9 +37,11 @@ const ProductCard = (props) => {
   return (
     <>
       <div className="product_card px-1 d-flex flex-col justify-between ">
-        <div className="product_img_container">
-          <img className="product_img" src={image} alt={alt} />
-        </div>
+        <Link to={`/product/${_id}`}>
+          <div className="product_img_container">
+            <img className="product_img" src={image} alt={alt} />
+          </div>
+        </Link>
 
         <div className="product_info   ">
           <p className="product_name">{productName}</p>
