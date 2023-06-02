@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProductCard.css";
+import { Link } from "react-router-dom";
 const HorizontalProductCard = () => {
   const products = {
     brand: "JBL",
@@ -20,9 +21,11 @@ const HorizontalProductCard = () => {
   return (
     <div className="horizontal_product m-1 ">
       <div className="horizontal_product_wrapper d-flex ">
-        <div className="horizontal_product_img p-1 ">
-          <img src={products.image} alt={products.alt} />
-        </div>
+        <Link to={`/product/${products._id}`}>
+          <div className="horizontal_product_img p-1 ">
+            <img src={products.image} alt={products.alt} />
+          </div>
+        </Link>
         <div className="horizontal_product_info m-1  ">
           <p className=" product_name ">{products.productName}</p>
           <div>
