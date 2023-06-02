@@ -18,7 +18,8 @@ export const loginService = async (user, dispatchUser) => {
       toast.error("Something went wrong!");
     }
   } catch (error) {
-    const errMsg = error?.response?.data?.errors[0];
-    dispatchUser({ type: SET_LOGIN_ERROR, payload: errMsg });
+    // const errMsg = error?.response?.data?.errors[0];
+    console.log(error);
+    dispatchUser({ type: SET_LOGIN_ERROR, payload: "something went wrong" });
   }
 };
