@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 
 import "./ProductDetails.css";
-import { getSingleProduct } from "../../Services";
+import { addToCart, getSingleProduct } from "../../Services";
 import { useAuth, useCart, useWishlist } from "../../Context";
 import { getProductById } from "../../Utils";
 import { SET_ADD_TO_CART, SET_ADD_TO_WISHLIST } from "../../Constant";
@@ -33,27 +33,9 @@ const ProductDetailsPage = () => {
     getSingleProduct(id, setProduct, setIsLoading);
   }, [id]);
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = async (product) => {
     if (isUserLoggedIn) {
-      try {
-        const { data, status } = await axios.post(
-          "/api/user/cart",
-          { product },
-          {
-            headers: {
-              authorization: encodedToken
-            }
-          }
-        );
-        if (status === 201) {
-          dispatchCart({ type: SET_ADD_TO_CART, payload: data.cart });
-          toast.success(`${product.productName} added to cart 🛒`);
-        } else {
-          toast.error("Error,something went wrong!!");
-        }
-      } catch (error) {
-        console.log(error);
-      }
+      await addToCart(product, dispatchCart);
     } else {
       navigate("/login");
     }
