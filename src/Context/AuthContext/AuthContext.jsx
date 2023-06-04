@@ -1,14 +1,23 @@
-import { createContext, useContext, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState
+} from "react";
 import { authReducer } from "../../Reducer";
 
 import { LOADING, SET_LOGIN_ERROR, SET_SIGNUP_ERROR } from "../../Constant";
 import { loginService, signupService } from "../../Services";
 import { loginFromValidation, signUpFormValidation } from "../../Utils";
+import { toast } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
+ 
 
 const AuthContext = createContext();
 
 const userInitialState = {
-  user: {
+  signUpUser: {
     firstName: "",
     lastName: "",
     email: "",
@@ -27,6 +36,10 @@ const userInitialState = {
 
 export const AuthProvider = ({ children }) => {
   const [userState, dispatchUser] = useReducer(authReducer, userInitialState);
+  const [user, setUser] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+ 
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -36,8 +49,9 @@ export const AuthProvider = ({ children }) => {
 
     if (isValid) {
       dispatchUser({ type: SET_SIGNUP_ERROR, payload: "" });
-      await signupService(userState.user, dispatchUser);
+      await signupService(userState.signUpUser, dispatchUser, setUser);
       dispatchUser({ type: LOADING, payload: false });
+      navigate(location?.state?.from?.pathname);
     } else {
       dispatchUser({ type: LOADING, payload: false });
     }
@@ -51,16 +65,37 @@ export const AuthProvider = ({ children }) => {
 
     if (isValid) {
       dispatchUser({ type: SET_LOGIN_ERROR, payload: "" });
-      await loginService(userState.loginUser, dispatchUser);
+      await loginService(userState.loginUser, dispatchUser, setUser);
       dispatchUser({ type: LOADING, payload: false });
+      navigate(location?.state?.from?.pathname);
     } else {
       dispatchUser({ type: LOADING, payload: false });
     }
   };
 
+  const logOutBtnHandler = () => {
+    localStorage.clear();
+    setUser("");
+    navigate("/");
+    toast.success("Logged Out Successfully");
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
+
   return (
     <AuthContext.Provider
-      value={{ userState, dispatchUser, signupHandler, loginHandler }}
+      value={{
+        userState,
+        dispatchUser,
+        signupHandler,
+        loginHandler,
+        logOutBtnHandler,
+        user
+      }}
     >
       {children}
     </AuthContext.Provider>

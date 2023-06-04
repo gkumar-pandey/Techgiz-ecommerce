@@ -1,0 +1,96 @@
+.product_details {
+  width: 100%;
+}
+
+.product_container {
+  width: 100%;
+  max-width: 70rem;
+  border-radius: 0.25rem;
+  margin: 2rem 0.25rem;
+}
+
+.product_details_wrapper {
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.product_details_img img {
+  width: 100%;
+  object-fit: fill;
+}
+
+.product_details_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-family: sans-serif;
+}
+.product_details_name {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin: 0.25rem;
+}
+.product_details_desc {
+  font-size: 1rem;
+  font-family: sans-serif;
+  margin: 0.5rem 0.25rem;
+  color: "#302f34";
+  font-weight: 400;
+}
+.product_details_price_info {
+  margin: 1rem 0.25rem;
+  padding: 1rem 0;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+.product_details_price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0rem;
+
+  color: var(--primary-color);
+}
+.product_details_price::before,
+.product_details_old_price::before {
+  content: "₹";
+}
+
+.product_details_old_price {
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: line-through;
+  color: grey;
+  margin: 0 0.5rem;
+}
+
+.product_details_discount {
+  margin: 0 0.25rem;
+  font-weight: bold;
+  color: green;
+  font-size: 1.2rem;
+}
+
+.inclusive_text {
+  color: #03a690;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.text_icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.text_icon .icon {
+  font-size: 1.2rem;
+}
+@media (max-width: 500px) {
+  .product_details_wrapper {
+    grid-template-columns: 1fr;
+  }
+}

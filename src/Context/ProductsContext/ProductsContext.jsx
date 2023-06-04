@@ -28,7 +28,7 @@ const filterInitialState = {
   outOfStock: false,
   rating: 0,
   searchQuery: "",
-  maxRange: 5000
+  maxRange: 20000
 };
 
 export const ProductsProvider = ({ children }) => {
@@ -105,6 +105,8 @@ export const ProductsProvider = ({ children }) => {
 
   const productsList = filterProducts();
 
+  console.log(filterState.filterByType);
+
   return (
     <ProductsContext.Provider
       value={{
@@ -112,7 +114,8 @@ export const ProductsProvider = ({ children }) => {
         dispatchFilter,
         filterState,
         isLoading,
-        setIsLoading
+        setIsLoading,
+        products
       }}
     >
       {children}
