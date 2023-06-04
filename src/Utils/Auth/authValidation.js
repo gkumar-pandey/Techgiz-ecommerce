@@ -1,9 +1,9 @@
 import { SET_LOGIN_ERROR, SET_SIGNUP_ERROR } from "../../Constant";
 
-export const signUpFormValidation = (user, dispatchUser) => {
+export const signUpFormValidation = (userState, dispatchUser) => {
   const {
-    user: { email, firstName, lastName, password, confirmPassword }
-  } = user;
+    signUpUser: { email, firstName, lastName, password, confirmPassword }
+  } = userState;
 
   const isfirstNameValid =
     firstName.length > 2 && /^[A-Za-z\s]+$/.test(firstName);
