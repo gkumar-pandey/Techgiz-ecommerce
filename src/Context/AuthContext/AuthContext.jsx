@@ -10,9 +10,8 @@ import { authReducer } from "../../Reducer";
 import { LOADING, SET_LOGIN_ERROR, SET_SIGNUP_ERROR } from "../../Constant";
 import { loginService, signupService } from "../../Services";
 import { loginFromValidation, signUpFormValidation } from "../../Utils";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
- 
 
 const AuthContext = createContext();
 
@@ -38,8 +37,6 @@ export const AuthProvider = ({ children }) => {
   const [userState, dispatchUser] = useReducer(authReducer, userInitialState);
   const [user, setUser] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
- 
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -51,7 +48,6 @@ export const AuthProvider = ({ children }) => {
       dispatchUser({ type: SET_SIGNUP_ERROR, payload: "" });
       await signupService(userState.signUpUser, dispatchUser, setUser);
       dispatchUser({ type: LOADING, payload: false });
-      navigate(location?.state?.from?.pathname);
     } else {
       dispatchUser({ type: LOADING, payload: false });
     }
@@ -67,7 +63,6 @@ export const AuthProvider = ({ children }) => {
       dispatchUser({ type: SET_LOGIN_ERROR, payload: "" });
       await loginService(userState.loginUser, dispatchUser, setUser);
       dispatchUser({ type: LOADING, payload: false });
-      navigate(location?.state?.from?.pathname);
     } else {
       dispatchUser({ type: LOADING, payload: false });
     }
