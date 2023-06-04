@@ -36,9 +36,13 @@ const Navbar = () => {
           <Link to={"/"} className="link">
             <h3 className="nav-logo cursor-pointer ">TechGiz</h3>
           </Link>
+ 
           <Link to={"/products"}>
             <button className="shop_btn ">Shop now</button>
           </Link>
+        </div>
+        <div className="search">
+          <Search />
         </div>
         {location.pathname === "/products" && (
           <div className="search">

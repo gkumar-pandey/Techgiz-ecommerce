@@ -6,6 +6,8 @@ import { useAuth } from "../../Context";
 
 const MobileNavigation = ({ HandleSideNavbar, showSideNavbar }) => {
   const { user, logOutBtnHandler } = useAuth();
+ 
+ 
   return (
     <div className={`sidenav ${showSideNavbar && "active"} `}>
       <div className="sidenav-wrapper">
@@ -17,6 +19,7 @@ const MobileNavigation = ({ HandleSideNavbar, showSideNavbar }) => {
             ) : (
               <span className="mx-2">Welcome</span>
             )}
+ 
           </div>
           <RxCross2 onClick={HandleSideNavbar} />
         </div>
