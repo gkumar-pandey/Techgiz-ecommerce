@@ -46,7 +46,7 @@ const PriceRange = () => {
         <input
           type="range"
           min={0}
-          max={5000}
+          max={20000}
           value={maxRange}
           step={500}
           onChange={(e) => {

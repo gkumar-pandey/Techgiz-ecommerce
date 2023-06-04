@@ -18,12 +18,12 @@ const FilterByTypes = () => {
           <label key={idx}>
             <input
               value={type}
-              checked={filterByType.includes(type)}
+              checked={filterByType.includes(type.toLowerCase())}
               onChange={(e) =>
                 dispatchFilter({
                   type: SET_FILTER_BY_TYPE,
                   payload: {
-                    value: e.target.value,
+                    value: e.target.value.toLowerCase(),
                     isChecked: e.target.checked
                   }
                 })
