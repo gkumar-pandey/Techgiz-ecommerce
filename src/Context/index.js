@@ -1,9 +1,8 @@
-import {
-  WishlistProvider,
-  useWishlist
-} from "./WishlistContext/WishlistContext.js";
-export * from "./AuthContext/AuthContext.jsx";
+import { WishlistProvider } from "./WishlistContext/WishlistContext.js";
+import { useAuth, AuthProvider } from "./AuthContext/AuthContext.jsx";
+import { useWishlist } from "./WishlistContext/WishlistContext.js";
+import { useCart } from "./CartContext/CartContext.js";
 export * from "./ProductsContext/ProductsContext.jsx";
 export * from "./CartContext/CartContext.js";
 
-export { WishlistProvider, useWishlist };
+export { WishlistProvider, useAuth, AuthProvider, useWishlist, useCart };

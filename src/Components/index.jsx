@@ -6,6 +6,7 @@ import HorizontalProductCard from "./ProductCard/HorizontalProductCard";
 import Loader from "./Loader/Loader";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import Rating from "./Rating/Rating";
+import RequireAuth from "./RequireAuth/RequireAuth";
 
 export {
   Navbar,
@@ -15,5 +16,6 @@ export {
   HorizontalProductCard,
   Loader,
   ProductDetails,
-  Rating
+  Rating,
+  RequireAuth
 };

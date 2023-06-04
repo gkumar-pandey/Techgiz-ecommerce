@@ -10,16 +10,17 @@
   border-radius: 0.25rem;
   font-size: 1.4rem;
   font-weight: 600;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
+  font-family: sans-serif;
   border: none;
-  transition: all ease-in 0.3s;
+  transition: all ease-in 0.2s;
 }
 
 .shop_now_btn:hover {
-  background-color: rgb(151, 0, 51);
+  background-color: var(--primary-color);
   color: #fff;
   border: 1px solid #fff;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 @media (max-width: 48rem) {

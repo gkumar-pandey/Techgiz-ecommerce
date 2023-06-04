@@ -2,17 +2,87 @@ import React from "react";
 import { BsCashStack } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaExchangeAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FiArrowRight } from "react-icons/fi";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  AiOutlineHeart,
+  AiFillHeart,
+  AiOutlineShoppingCart
+} from "react-icons/ai";
 
 import Rating from "../Rating/Rating";
+import { useAuth, useCart, useWishlist } from "../../Context";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { SET_ADD_TO_CART, SET_ADD_TO_WISHLIST } from "../../Constant";
+import { getProductById } from "../../Utils";
 
-const ProductDetails = ({
-  product,
-  handleAddToCart,
-  handleAddToWishlist,
-  isProductInCart,
-  isProductInWishlist
-}) => {
+const ProductDetails = ({ product }) => {
+  const { dispatchCart, cartState } = useCart();
+  const { dispatchWishlist, wishlistProductState } = useWishlist();
+  const { isUserLoggedIn, user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isProductInCart = getProductById(cartState.products, product._id);
+  const isProductInWishlist = getProductById(
+    wishlistProductState.products,
+    product._id
+  );
+
+  const handleAddToCart = async (product) => {
+    if (isUserLoggedIn) {
+      try {
+        const { status, data } = await axios.post(
+          "/api/user/cart",
+          { product },
+          {
+            headers: {
+              authorization: user.token
+            }
+          }
+        );
+        if (status === 201) {
+          dispatchCart({ type: SET_ADD_TO_CART, payload: data.cart });
+          toast.success(`${product.productName} added to cart`);
+        } else {
+          toast.error("Error, Something went wrong!!");
+        }
+      } catch (error) {
+        console.error(error.message);
+        toast.error(error.message);
+      }
+    } else {
+      navigate("/login", { state: { from: location } });
+    }
+  };
+
+  const handleAddToWishlist = async (product) => {
+    if (isUserLoggedIn) {
+      try {
+        const { data, status } = await axios.post(
+          "/api/user/wishlist",
+          { product },
+          { headers: { authorization: user.token } }
+        );
+        if (status === 201) {
+          dispatchWishlist({
+            type: SET_ADD_TO_WISHLIST,
+            payload: data.wishlist
+          });
+
+          toast.success(`${product.productName} added to wishlist `);
+        } else {
+          toast.error("Error, Something went wrong!!");
+        }
+      } catch (error) {
+        console.error(error.message);
+        toast.error(error.message);
+      }
+    } else {
+      navigate("/login", { state: { from: location } });
+    }
+  };
   return (
     <>
       <div className="product_details_wrapper d-flex   ">
@@ -40,26 +110,34 @@ const ProductDetails = ({
               {!product?.inStock ? (
                 <button className="solid-btn">Out of stock</button>
               ) : isProductInCart ? (
-                <Link to={"/cart"}>
-                  <button className="solid-btn">Go to cart</button>
+                <Link to={"/cart"} className="link">
+                  <button className="solid-btn d-flex items-center justify-center ">
+                    <span>Go to cart</span>
+                    <FiArrowRight style={{ fontSize: "1.5rem" }} />
+                  </button>
                 </Link>
               ) : (
                 <button
-                  className=" solid-btn"
-                  onClick={() => handleAddToCart()}
+                  className=" solid-btn d-flex items-center justify-between "
+                  onClick={() => handleAddToCart(product)}
                 >
-                  Add to cart
+                  <AiOutlineShoppingCart style={{ fontSize: "1.5rem" }} />
+                  <span className="mx-1">Add to cart</span>
                 </button>
               )}
 
               {isProductInWishlist ? (
-                <button className="outlined-btn">Added to wishlist</button>
+                <button className="outlined-btn d-flex items-center justify-center ">
+                  <AiFillHeart style={{ fontSize: "1.5rem", color: "red" }} />
+                  <span className="mx-1">Wishlist</span>
+                </button>
               ) : (
                 <button
-                  className=" outlined-btn"
-                  onClick={() => handleAddToWishlist()}
+                  className=" outlined-btn d-flex items-center justify-between "
+                  onClick={() => handleAddToWishlist(product)}
                 >
-                  Add to wishlist
+                  <AiOutlineHeart style={{ fontSize: "1.5rem" }} />{" "}
+                  <span className="mx-1">Wishlist</span>
                 </button>
               )}
             </div>

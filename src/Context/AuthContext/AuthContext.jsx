@@ -1,14 +1,22 @@
-import { createContext, useContext, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState
+} from "react";
 import { authReducer } from "../../Reducer";
 
 import { LOADING, SET_LOGIN_ERROR, SET_SIGNUP_ERROR } from "../../Constant";
 import { loginService, signupService } from "../../Services";
 import { loginFromValidation, signUpFormValidation } from "../../Utils";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
 
 const userInitialState = {
-  user: {
+  signUpUser: {
     firstName: "",
     lastName: "",
     email: "",
@@ -27,6 +35,16 @@ const userInitialState = {
 
 export const AuthProvider = ({ children }) => {
   const [userState, dispatchUser] = useReducer(authReducer, userInitialState);
+  const [user, setUser] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isUserLoggedIn = localStorage.getItem("user");
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -36,8 +54,9 @@ export const AuthProvider = ({ children }) => {
 
     if (isValid) {
       dispatchUser({ type: SET_SIGNUP_ERROR, payload: "" });
-      await signupService(userState.user, dispatchUser);
+      await signupService(userState.signUpUser, dispatchUser, setUser);
       dispatchUser({ type: LOADING, payload: false });
+      navigate(location?.state?.from?.pathname);
     } else {
       dispatchUser({ type: LOADING, payload: false });
     }
@@ -51,15 +70,20 @@ export const AuthProvider = ({ children }) => {
 
     if (isValid) {
       dispatchUser({ type: SET_LOGIN_ERROR, payload: "" });
-      await loginService(userState.loginUser, dispatchUser);
+      await loginService(userState.loginUser, dispatchUser, setUser);
       dispatchUser({ type: LOADING, payload: false });
+      navigate(location?.state?.from?.pathname);
     } else {
       dispatchUser({ type: LOADING, payload: false });
     }
   };
 
-  const isUserLoggedIn = localStorage.getItem("user");
-  const encodedToken = JSON.parse(isUserLoggedIn).token;
+  const logOutBtnHandler = () => {
+    localStorage.clear();
+    setUser("");
+    navigate("/");
+    toast.success("Logged Out Successfully");
+  };
 
   return (
     <AuthContext.Provider
@@ -68,8 +92,9 @@ export const AuthProvider = ({ children }) => {
         dispatchUser,
         signupHandler,
         loginHandler,
+        logOutBtnHandler,
         isUserLoggedIn,
-        encodedToken
+        user
       }}
     >
       {children}
