@@ -1,17 +1,17 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import { Navbar, RequireAuth } from "./Components";
-
 import { Toaster } from "react-hot-toast";
-
-import ProductsPage from "./Pages/Productspage/ProductsPage";
-import CartPage from "./Pages/CartPage/CartPage";
-import LoginPage from "./Pages/Authpages/LoginPage/LoginPage";
-import SignUpPage from "./Pages/Authpages/SignUpPage/SignUpPage";
-import WishlistPage from "./Pages/WishlistPage/WishlistPage";
-import { ProductDetailsPage } from "./Pages";
+import { Navbar, RequireAuth } from "./Components";
+import {
+  CartPage,
+  Home,
+  LoginPage,
+  ProductDetailsPage,
+  ProductsPage,
+  SignUpPage,
+  WishlistPage
+} from "./Pages";
 
 function App() {
   return (

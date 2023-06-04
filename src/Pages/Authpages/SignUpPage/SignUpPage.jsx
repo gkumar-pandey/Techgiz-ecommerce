@@ -16,7 +16,7 @@ import { useAuth } from "../../../Context";
 const SignUpPage = () => {
   const {
     userState: {
-      user: { firstName, lastName, email, password, confirmPassword },
+      signUpUser: { firstName, lastName, email, password, confirmPassword },
       signUpError,
       isLoading
     },
