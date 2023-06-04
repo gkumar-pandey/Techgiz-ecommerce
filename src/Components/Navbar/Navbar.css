@@ -170,7 +170,6 @@ nav {
 .profile-icon:hover .profile_content {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
 }
 
 @media screen and (max-width: 768px) {
