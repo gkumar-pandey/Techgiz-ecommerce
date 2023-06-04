@@ -5,7 +5,7 @@ import {
   useReducer,
   useState
 } from "react";
-import { fetchAllProducts } from "../../Services";
+import { getAllProducts } from "../../Services";
 import { FilterReducer } from "../../Reducer";
 
 import {
@@ -40,7 +40,7 @@ export const ProductsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetchAllProducts(setProducts, setIsLoading);
+    getAllProducts(setProducts, setIsLoading);
   }, []);
 
   const filterProducts = () => {

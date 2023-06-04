@@ -3,13 +3,15 @@ import GridContainer from "../../../Components/GridContainer/GridContainer";
 import { useProducts } from "../../../Context/ProductsContext/ProductsContext";
 import ProductCard from "../../../Components/ProductCard/ProductCard";
 
-const SimilarProductsComp = ({ type, brand }) => {
+const SimilarProdComp = ({ type, brand }) => {
   const { products } = useProducts();
 
   const similarProducts = () => {
     let prod = [...products];
 
-    return prod.filter((prod) => prod.type === type);
+    return prod.filter(
+      (prod) => prod?.type?.toLowerCase() === type?.toLowerCase()
+    );
   };
   return (
     <div>
@@ -26,4 +28,4 @@ const SimilarProductsComp = ({ type, brand }) => {
   );
 };
 
-export default SimilarProductsComp;
+export default SimilarProdComp;

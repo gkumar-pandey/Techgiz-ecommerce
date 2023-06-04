@@ -38,6 +38,13 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const isUserLoggedIn = localStorage.getItem("user");
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -78,12 +85,6 @@ export const AuthProvider = ({ children }) => {
     toast.success("Logged Out Successfully");
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      setUser(JSON.parse(localStorage.getItem("user")));
-    }
-  }, []);
-
   return (
     <AuthContext.Provider
       value={{
@@ -92,6 +93,7 @@ export const AuthProvider = ({ children }) => {
         signupHandler,
         loginHandler,
         logOutBtnHandler,
+        isUserLoggedIn,
         user
       }}
     >
