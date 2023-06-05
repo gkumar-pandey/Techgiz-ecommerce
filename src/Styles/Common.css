@@ -138,3 +138,12 @@
 .border {
   border: 1px solid red;
 }
+
+.font-semibold {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.font-bold {
+  color: var(--primary-color);
+  font-weight: 700;
+}
