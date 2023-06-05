@@ -220,7 +220,7 @@ export const products = [
     image:
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684508230/TechGiz/product-13.png",
     description: "Waterproof Wired Sports In-Ear Headphones",
-    price: "1799.00",
+    price: "1,799.00",
     oldPrice: "2000.00",
     inStock: true,
     discount: 30,
@@ -252,8 +252,8 @@ export const products = [
     image:
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684508827/TechGiz/product-15.png",
     description: "Wireless over-ear noise cancelling headphones",
-    price: "24,999.00",
-    oldPrice: "26,999.00",
+    price: "18,999.00",
+    oldPrice: "21,999.00",
     inStock: true,
     discount: 7,
     rating: 4.8
@@ -284,8 +284,8 @@ export const products = [
     image:
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506752/TechGiz/product-17.png",
     description: "True wireless earbuds",
-    price: "7499.00",
-    oldPrice: "8499.00",
+    price: "7,499.00",
+    oldPrice: "8,499.00",
     inStock: false,
     discount: 11,
     rating: 3.5

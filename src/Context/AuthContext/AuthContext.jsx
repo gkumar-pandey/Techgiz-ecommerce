@@ -10,9 +10,8 @@ import { authReducer } from "../../Reducer";
 import { LOADING, SET_LOGIN_ERROR, SET_SIGNUP_ERROR } from "../../Constant";
 import { loginService, signupService } from "../../Services";
 import { loginFromValidation, signUpFormValidation } from "../../Utils";
-import { toast } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
- 
+import { toast } from "react-hot-toast";
 
 const AuthContext = createContext();
 
@@ -39,7 +38,13 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
- 
+  const isUserLoggedIn = localStorage.getItem("user");
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    }
+  }, []);
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -80,12 +85,6 @@ export const AuthProvider = ({ children }) => {
     toast.success("Logged Out Successfully");
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("user")) {
-      setUser(JSON.parse(localStorage.getItem("user")));
-    }
-  }, []);
-
   return (
     <AuthContext.Provider
       value={{
@@ -94,6 +93,7 @@ export const AuthProvider = ({ children }) => {
         signupHandler,
         loginHandler,
         logOutBtnHandler,
+        isUserLoggedIn,
         user
       }}
     >

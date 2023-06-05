@@ -1,17 +1,20 @@
 .login_form_container,
 .signup_form_container {
   margin-top: 4rem;
+  font-family: sans-serif;
 }
 
 .login_form,
 .signup_form {
-  flex-basis: 20rem;
+  width: 100%;
+  max-width: 25rem;
+  margin: 0rem 1rem;
+  border-radius: 0.25rem;
 }
 
 .login_form_wrapper,
 .signup_form_wrapper {
   padding: 1rem 1.5rem;
-  border-radius: 0.25rem;
 }
 
 .login_form_title,
