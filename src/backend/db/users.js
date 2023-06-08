@@ -13,6 +13,19 @@ export const users = [
     lastName: "Pandey",
     email: "gautamshekhar078@gmail.com",
     password: "Gautam#123",
+    address: [
+      {
+        _id: uuid(),
+        name: "Gautam kumar",
+        zipCode: "805128",
+        street: "Road no 1 , Ashok nagar , kankarbagh",
+        city: "Patna",
+        district: "Patna",
+        state: "Bihar",
+        country: "India",
+        phoneNumber: "7779843621"
+      }
+    ],
     createdAt: formatDate(),
     updatedAt: formatDate()
   }
