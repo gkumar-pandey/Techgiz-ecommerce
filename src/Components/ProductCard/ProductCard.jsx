@@ -51,7 +51,7 @@ const ProductCard = (props) => {
         </button>
         {isProdAvailableInWishlist ? (
           <AiFillHeart
-            className="wishlist_icon"
+            className="wishlist_icon heart_fill"
             onClick={() => removeFromWishlistHandler(_id, productName)}
           />
         ) : (
