@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useState } from "react";
 import { CartReducer } from "../../Reducer/CartReducer/CartReducer";
 import { addToCart, removeFromCart, updateCartItemQty } from "../../Services";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,7 @@ const initialCartState = {
 };
 export const CartContextProvider = ({ children }) => {
   const [cartState, dispatchCart] = useReducer(CartReducer, initialCartState);
+
   const navigate = useNavigate();
   const isUserLoggedIn = JSON.parse(localStorage.getItem("user"))?.token;
 
@@ -33,6 +34,7 @@ export const CartContextProvider = ({ children }) => {
       updateCartItemQty(productId, productName, type, dispatchCart);
     }
   };
+
   return (
     <CartContext.Provider
       value={{

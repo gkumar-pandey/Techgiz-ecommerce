@@ -6,6 +6,8 @@ import WishlistPage from "./WishlistPage/WishlistPage";
 import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
 import CartPage from "./CartPage/CartPage";
 import CheckoutPage from "./CheckoutPage/CheckoutPage";
+import Profile from "./Profile/Profile";
+import OrderSummary from "./OrderSummary/OrderSummary";
 
 export {
   WishlistPage,
@@ -15,5 +17,7 @@ export {
   Home,
   LoginPage,
   SignUpPage,
-  CheckoutPage
+  CheckoutPage,
+  Profile,
+  OrderSummary
 };

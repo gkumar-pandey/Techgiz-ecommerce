@@ -5,7 +5,11 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./Context/AuthContext/AuthContext";
-import { ProductsProvider, WishlistProvider } from "./Context";
+import {
+  CheckoutProvider,
+  ProductsProvider,
+  WishlistProvider
+} from "./Context";
 import { CartContextProvider } from "./Context/CartContext/CartContext";
 
 // Call make Server
@@ -18,7 +22,9 @@ ReactDOM.render(
         <ProductsProvider>
           <WishlistProvider>
             <CartContextProvider>
-              <App />
+              <CheckoutProvider>
+                <App />
+              </CheckoutProvider>
             </CartContextProvider>
           </WishlistProvider>
         </ProductsProvider>
