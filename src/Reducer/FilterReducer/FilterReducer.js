@@ -55,7 +55,7 @@ export const FilterReducer = (state, { type, payload }) => {
         filterByOutOfStock: false,
         rating: 0,
         searchQuery: "",
-        maxRange: 5000
+        maxRange: 20000
       };
     default:
       return { ...state };

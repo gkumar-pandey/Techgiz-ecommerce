@@ -21,7 +21,7 @@
   text-shadow: 0 4px 5px rgba(0, 0, 0, 0.7);
 }
 .brand {
-  transition: all ease-in 0.3s;
+  transition: all ease 0.2s;
 }
 .brand:hover {
   transform: scale(1.1);

@@ -1,27 +1,33 @@
 import { Server, Model, RestSerializer } from "miragejs";
 import {
   loginHandler,
-  signupHandler,
+  signupHandler
 } from "./backend/controllers/AuthController";
 import {
   addItemToCartHandler,
   getCartItemsHandler,
   removeItemFromCartHandler,
-  updateCartItemHandler,
+  updateCartItemHandler
 } from "./backend/controllers/CartController";
 import {
   getAllCategoriesHandler,
-  getCategoryHandler,
+  getCategoryHandler
 } from "./backend/controllers/CategoryController";
 import {
   getAllProductsHandler,
-  getProductHandler,
+  getProductHandler
 } from "./backend/controllers/ProductController";
 import {
   addItemToWishlistHandler,
   getWishlistItemsHandler,
-  removeItemFromWishlistHandler,
+  removeItemFromWishlistHandler
 } from "./backend/controllers/WishlistController";
+import {
+  getAddressHandler,
+  addAddressHandler,
+  removeAddressHandler,
+  updateAddressHandler
+} from "./backend/controllers/AddressController";
 import { categories } from "./backend/db/categories";
 import { products } from "./backend/db/products";
 import { users } from "./backend/db/users";
@@ -29,15 +35,16 @@ import { users } from "./backend/db/users";
 export function makeServer({ environment = "development" } = {}) {
   return new Server({
     serializers: {
-      application: RestSerializer,
+      application: RestSerializer
     },
     environment,
     models: {
       product: Model,
       category: Model,
       user: Model,
+      address: Model,
       cart: Model,
-      wishlist: Model,
+      wishlist: Model
     },
 
     // Runs on the start of the server
@@ -85,6 +92,11 @@ export function makeServer({ environment = "development" } = {}) {
         "/user/wishlist/:productId",
         removeItemFromWishlistHandler.bind(this)
       );
-    },
+
+      this.get("/user/address", getAddressHandler.bind(this));
+      this.post("/user/address", addAddressHandler.bind(this));
+      this.post("/user/address/:addressId", updateAddressHandler.bind(this));
+      this.delete("/user/address/:addressId", removeAddressHandler.bind(this));
+    }
   });
 }

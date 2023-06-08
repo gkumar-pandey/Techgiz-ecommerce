@@ -16,14 +16,20 @@ import {
 export const authReducer = (state, { type, payload }) => {
   switch (type) {
     case SET_EMAIL:
-      return { ...state, user: { ...state.user, email: payload.trim() } };
+      return {
+        ...state,
+        signUpUser: { ...state.signUpUser, email: payload.trim() }
+      };
     case SET_LOGIN_EMAIL:
       return {
         ...state,
         loginUser: { ...state.loginUser, email: payload.trim() }
       };
     case SET_PASSWORD:
-      return { ...state, user: { ...state.user, password: payload.trim() } };
+      return {
+        ...state,
+        signUpUser: { ...state.signUpUser, password: payload.trim() }
+      };
     case SET_LOGIN_PASSWORD:
       return {
         ...state,
@@ -32,14 +38,20 @@ export const authReducer = (state, { type, payload }) => {
     case SET_CONFIRM_PASSWORD:
       return {
         ...state,
-        user: { ...state.user, confirmPassword: payload.trim() }
+        signUpUser: { ...state.signUpUser, confirmPassword: payload.trim() }
       };
     case SAVE_USER:
       return { ...state, isSaveUser: payload };
     case SET_FIRST_NAME:
-      return { ...state, user: { ...state.user, firstName: payload.trim() } };
+      return {
+        ...state,
+        signUpUser: { ...state.signUpUser, firstName: payload.trim() }
+      };
     case SET_LAST_NAME:
-      return { ...state, user: { ...state.user, lastName: payload.trim() } };
+      return {
+        ...state,
+        signUpUser: { ...state.signUpUser, lastName: payload.trim() }
+      };
     case SET_SIGNUP_ERROR:
       return { ...state, signUpError: payload.trim() };
     case SET_LOGIN_ERROR:
@@ -49,7 +61,7 @@ export const authReducer = (state, { type, payload }) => {
     case RESET:
       return {
         ...state,
-        user: {
+        signUpUser: {
           firstName: "",
           lastName: "",
           email: "",

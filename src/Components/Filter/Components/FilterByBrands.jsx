@@ -18,12 +18,12 @@ const FilterByBrands = () => {
             <input
               value={brand}
               type="checkbox"
-              checked={filterByBrand.includes(brand)}
+              checked={filterByBrand.includes(brand.toLowerCase())}
               onChange={(e) => {
                 dispatchFilter({
                   type: SET_FILTER_BY_BRAND,
                   payload: {
-                    value: e.target.value,
+                    value: e.target.value.toLowerCase(),
                     isChecked: e.target.checked
                   }
                 });

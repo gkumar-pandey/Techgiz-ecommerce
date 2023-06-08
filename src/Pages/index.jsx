@@ -1,6 +1,23 @@
+import Home from "./Home/Home";
+import ProductsPage from "./Productspage/ProductsPage";
+import LoginPage from "./Authpages/LoginPage/LoginPage";
+import SignUpPage from "./Authpages/SignUpPage/SignUpPage";
 import WishlistPage from "./WishlistPage/WishlistPage";
-export * from "./Home/Home";
-export * from "./Authpages/index";
-export * from "./Productspage/ProductsPage";
+import ProductDetailsPage from "./ProductDetailsPage/ProductDetailsPage";
+import CartPage from "./CartPage/CartPage";
+import CheckoutPage from "./CheckoutPage/CheckoutPage";
+import Profile from "./Profile/Profile";
+import OrderSummary from "./OrderSummary/OrderSummary";
 
-export { WishlistPage };
+export {
+  WishlistPage,
+  ProductDetailsPage,
+  ProductsPage,
+  CartPage,
+  Home,
+  LoginPage,
+  SignUpPage,
+  CheckoutPage,
+  Profile,
+  OrderSummary
+};

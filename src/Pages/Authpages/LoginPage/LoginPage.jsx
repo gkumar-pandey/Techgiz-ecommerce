@@ -65,7 +65,7 @@ const LoginPage = () => {
               label={"Password"}
             />
           </div>
-          <div>
+          <div className="my-1">
             <input
               className="cursor-pointer"
               checked={isSaveUser}

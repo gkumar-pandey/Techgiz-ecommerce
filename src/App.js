@@ -1,15 +1,20 @@
 import "./App.css";
 
 import { Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home/Home";
-import { Navbar } from "./Components";
-
 import { Toaster } from "react-hot-toast";
-
-import ProductsPage from "./Pages/Productspage/ProductsPage";
-import LoginPage from "./Pages/Authpages/LoginPage/LoginPage";
-import SignUpPage from "./Pages/Authpages/SignUpPage/SignUpPage";
-import WishlistPage from "./Pages/WishlistPage/WishlistPage";
+import { Navbar, RequireAuth } from "./Components";
+import {
+  CartPage,
+  CheckoutPage,
+  Home,
+  LoginPage,
+  ProductDetailsPage,
+  ProductsPage,
+  SignUpPage,
+  WishlistPage,
+  OrderSummary,
+  Profile
+} from "./Pages";
 
 function App() {
   return (
@@ -21,7 +26,47 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/products" element={<ProductsPage />} />
-        <Route path="/wishlist" element={<WishlistPage />} />
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <CartPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <RequireAuth>
+              <WishlistPage />
+            </RequireAuth>
+          }
+        />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <CheckoutPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <RequireAuth>
+              <OrderSummary />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </div>
   );

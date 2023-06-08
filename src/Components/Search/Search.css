@@ -1,5 +1,5 @@
 .search_bar {
-  width: 400px;
+  width: 100%;
   position: relative;
   border: 1px solid var(--primary-color);
   border-radius: 0.25rem;
@@ -8,7 +8,7 @@
 .search_bar button {
   border: none;
   background-color: #fff;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.5rem;
 }
 .search_bar button .search_bar_icon {
   font-size: 1rem;

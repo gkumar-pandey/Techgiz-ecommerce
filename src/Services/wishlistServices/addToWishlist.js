@@ -5,7 +5,7 @@ export const addToWishlist = async (product, dispatchWishlist) => {
   const encodedToken = JSON.parse(localStorage.getItem("user"))?.token;
   try {
     const { data, status } = await axios.post(
-      "api/user/wishlist",
+      "/api/user/wishlist",
       { product },
       {
         headers: {

@@ -5,7 +5,7 @@ import {
   useReducer,
   useState
 } from "react";
-import { fetchAllProducts } from "../../Services";
+import { getAllProducts } from "../../Services";
 import { FilterReducer } from "../../Reducer";
 
 import {
@@ -28,7 +28,7 @@ const filterInitialState = {
   outOfStock: false,
   rating: 0,
   searchQuery: "",
-  maxRange: 5000
+  maxRange: 20000
 };
 
 export const ProductsProvider = ({ children }) => {
@@ -40,7 +40,7 @@ export const ProductsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetchAllProducts(setProducts, setIsLoading);
+    getAllProducts(setProducts, setIsLoading);
   }, []);
 
   const filterProducts = () => {
@@ -112,7 +112,8 @@ export const ProductsProvider = ({ children }) => {
         dispatchFilter,
         filterState,
         isLoading,
-        setIsLoading
+        setIsLoading,
+        products
       }}
     >
       {children}

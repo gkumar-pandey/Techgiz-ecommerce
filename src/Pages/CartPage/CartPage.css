@@ -1,0 +1,89 @@
+.cart_heading {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-family: sans-serif;
+  text-align: center;
+  padding: 1rem;
+  margin: 0.5rem 0.25rem;
+}
+
+.cart {
+  display: flex;
+  max-width: 80rem;
+  width: 100%;
+  margin: auto;
+}
+
+.cart_products {
+  width: 100%;
+  max-width: 65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cart_details {
+  flex-shrink: 1.5;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* products Details CSS */
+.priced_details {
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 1rem;
+  position: fixed;
+}
+
+.price_details_info {
+  border: 1px solid lightgray;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+.price_details_heading p {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.rupee::before {
+  content: "₹";
+}
+.total_price {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.text_green {
+  color: green;
+  font-weight: bold;
+}
+
+.text_bold {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .cart_container {
+    max-width: 100%;
+  }
+  .cart {
+    flex-wrap: wrap;
+  }
+  .cart_products {
+    width: 100%;
+    align-items: center;
+  }
+  .cart_details {
+    width: 100%;
+    justify-content: center;
+  }
+  .priced_details {
+    width: 100%;
+    position: relative;
+  }
+}

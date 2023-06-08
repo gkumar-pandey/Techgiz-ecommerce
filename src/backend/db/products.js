@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: "1d8c5c2a-6e3b-4952-9c51-7fb15a62c24f",
     brand: "boat",
     type: "wired",
     addedInYear: 2021,
@@ -24,7 +24,7 @@ export const products = [
     rating: 3
   },
   {
-    _id: uuid(),
+    _id: "3b6e4209-8a7f-4e55-97ae-1df26d1b0ff8",
     brand: "boat",
     type: "Wired",
     addedInYear: 2022,
@@ -41,7 +41,7 @@ export const products = [
     rating: 4.9
   },
   {
-    _id: uuid(),
+    _id: "d82961c7-ade4-4f10-915e-82dcfe6c8270",
     brand: "boat",
     type: "Wired",
     addedInYear: 2023,
@@ -74,7 +74,7 @@ export const products = [
     rating: 4.8
   },
   {
-    _id: uuid(),
+    _id: "8e5f3f2b-4a6e-4a9c-9dcd-6e95bfe1c9f5",
     brand: "boat",
     type: "Wireless",
     addedInYear: 2023,
@@ -90,24 +90,26 @@ export const products = [
     discount: 56,
     rating: 4.9
   },
+
   {
-    _id: uuid(),
+    _id: "a8d4b06e-78b2-4eaf-8ea2-6e2bc5f10c5e",
     brand: "boat",
     type: "Wireless",
     addedInYear: 2023,
     alt: "Airdopes 131 DC Edition",
     productName: "Airdopes 131 DC Edition",
     image:
-      " https://res.cloudinary.com/dlykup1dh/image/upload/v1684506327/TechGiz/product-6.png",
-    description: " 13 mm Drivers, Type-C Carry Case, 12 hours Nonstop Music",
+      "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506327/TechGiz/product-6.png",
+    description: "13 mm Drivers, Type-C Carry Case, 12 hours Nonstop Music",
     price: "1,399.00",
     oldPrice: "2,990.00",
     inStock: false,
     discount: 53,
     rating: 5.0
   },
+
   {
-    _id: uuid(),
+    _id: "f3f82c13-0f14-4f96-af4e-14a718014567",
     brand: "boat",
     type: "Wireless",
     addedInYear: 2022,
@@ -124,7 +126,7 @@ export const products = [
     rating: 3.8
   },
   {
-    _id: uuid(),
+    _id: "4f9d3e17-96a5-4b8e-8954-5023c0ddfe0f",
     brand: "boat",
     type: "Wireless",
     addedInYear: 2022,
@@ -141,7 +143,7 @@ export const products = [
     rating: 3.9
   },
   {
-    _id: uuid(),
+    _id: "e2bea1d1-16b4-4bc6-98dd-d0a251f86e9e",
     brand: "boat",
     type: "Neckbands",
     addedInYear: 2022,
@@ -158,7 +160,7 @@ export const products = [
     rating: 4.5
   },
   {
-    _id: uuid(),
+    _id: "f8a04b79-bc44-4ae6-a0c9-6e97e56a929d",
     brand: "boat",
     type: "Neckbands",
     addedInYear: 2022,
@@ -175,7 +177,7 @@ export const products = [
     rating: 4.8
   },
   {
-    _id: uuid(),
+    _id: "9d9df14f-156e-49c0-bf76-b3482a273b8f",
     brand: "boat",
     type: "Neckbands",
     addedInYear: 2023,
@@ -192,7 +194,7 @@ export const products = [
     rating: 3.5
   },
   {
-    _id: uuid(),
+    _id: "d1e7f4f9-125d-4c5b-8e20-97e199fc6f69",
     brand: "boat",
     type: "Speakers",
     addedInYear: 2022,
@@ -209,7 +211,7 @@ export const products = [
     rating: 3.8
   },
   {
-    _id: uuid(),
+    _id: "7a076c89-3c14-4b54-a00d-2b1a8e2d7ab0",
     brand: "JBL",
     type: "Wired",
     addedInYear: 2022,
@@ -218,14 +220,14 @@ export const products = [
     image:
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684508230/TechGiz/product-13.png",
     description: "Waterproof Wired Sports In-Ear Headphones",
-    price: "1799.00",
+    price: "1,799.00",
     oldPrice: "2000.00",
     inStock: true,
     discount: 30,
     rating: 3.8
   },
   {
-    _id: uuid(),
+    _id: "f1a79de4-5319-4f27-9bfc-28b9f6f3db7d",
     brand: "JBL",
     type: "Wired",
     addedInYear: 2022,
@@ -241,7 +243,7 @@ export const products = [
     rating: 2.8
   },
   {
-    _id: uuid(),
+    _id: "8c4b0a6c-1b7a-4be9-8129-bb8e3f4e344d",
     brand: "JBL",
     type: "Noise Cancellation",
     addedInYear: 2023,
@@ -250,14 +252,14 @@ export const products = [
     image:
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684508827/TechGiz/product-15.png",
     description: "Wireless over-ear noise cancelling headphones",
-    price: "24,999.00",
-    oldPrice: "26,999.00",
+    price: "18,999.00",
+    oldPrice: "21,999.00",
     inStock: true,
     discount: 7,
     rating: 4.8
   },
   {
-    _id: uuid(),
+    _id: "72c06f71-607a-4e3e-9344-4ed4c4b0b688",
     brand: "JBL",
     type: "Noise Cancellation",
     addedInYear: 2023,
@@ -273,7 +275,7 @@ export const products = [
     rating: 5
   },
   {
-    _id: uuid(),
+    _id: "3f45e5f1-892f-4a68-ba18-591b02de7c63",
     brand: "JBL",
     type: "Wireless",
     addedInYear: 2022,
@@ -282,14 +284,14 @@ export const products = [
     image:
       "https://res.cloudinary.com/dlykup1dh/image/upload/v1684506752/TechGiz/product-17.png",
     description: "True wireless earbuds",
-    price: "7499.00",
-    oldPrice: "8499.00",
+    price: "7,499.00",
+    oldPrice: "8,499.00",
     inStock: false,
     discount: 11,
     rating: 3.5
   },
   {
-    _id: uuid(),
+    _id: "2d3a2d1a-95e6-4c5b-8c0a-60165b13d0eb",
     brand: "JBL",
     type: "Wireless",
     addedInYear: 2022,
@@ -305,7 +307,7 @@ export const products = [
     rating: 4
   },
   {
-    _id: uuid(),
+    _id: "6d3be4f7-90fb-4ad5-83ef-20e5cc00a98e",
     brand: "JBL",
     type: "Speakers",
     addedInYear: 2022,
@@ -322,7 +324,7 @@ export const products = [
     rating: 4.5
   },
   {
-    _id: uuid(),
+    _id: "a49bc7a7-062f-471e-9db4-ff6f0e8fb00e",
     brand: "sony",
     type: "Wireless",
     addedInYear: 2023,
@@ -340,7 +342,7 @@ export const products = [
   },
 
   {
-    _id: uuid(),
+    _id: "478e74e4-c25c-4fe5-9a2c-c831c29e24f7",
     brand: "sony",
     type: "Wired",
     addedInYear: 2022,
@@ -356,7 +358,7 @@ export const products = [
     rating: 3
   },
   {
-    _id: uuid(),
+    _id: "3c94fe5e-ae51-47f6-96e4-36e313ed1841",
     brand: "sony",
     type: "Wired",
     addedInYear: 2023,
@@ -373,7 +375,7 @@ export const products = [
     rating: 3
   },
   {
-    _id: uuid(),
+    _id: "9091705d-7c52-4e6f-8ff0-8ae9d0e14e76",
     brand: "sony",
     type: "Speakers",
     addedInYear: 2022,
@@ -390,7 +392,7 @@ export const products = [
     rating: 4
   },
   {
-    _id: uuid(),
+    _id: "6f3e9c5b-1d33-40c9-94b9-df32d2b730f2",
     brand: "Marshall",
     type: "Speakers",
     addedInYear: 2022,
@@ -407,7 +409,7 @@ export const products = [
     rating: 4
   },
   {
-    _id: uuid(),
+    _id: "90a9e032-7422-4d26-8de9-43049e198bda",
     brand: "Mivi",
     type: "Wired",
     addedInYear: 2023,
@@ -424,7 +426,7 @@ export const products = [
     rating: 3.2
   },
   {
-    _id: uuid(),
+    _id: "7271c9f3-491f-4b7f-8090-65dbab38ceef",
     brand: "Mivi",
     type: "Wireless",
     addedInYear: 2022,
@@ -441,7 +443,7 @@ export const products = [
     rating: 2.8
   },
   {
-    _id: uuid(),
+    _id: "924ea0e7-cb36-4877-89e4-41f6c01174e0",
     brand: "Mivi",
     type: "Speakers",
     addedInYear: 2023,

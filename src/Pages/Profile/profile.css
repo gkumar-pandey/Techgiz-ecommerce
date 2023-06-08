@@ -1,0 +1,51 @@
+.profile_container {
+  max-width: 40rem;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+}
+
+.profile_container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+.tab_btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab_details {
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgrey;
+  padding: 1rem 0;
+}
+
+.profile_tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_tabs button {
+  font-size: 1rem;
+  padding: 1rem 0;
+  border: none;
+  font-family: sans-serif;
+  background-color: #fff;
+  cursor: pointer;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgrey;
+}
+
+@media (max-width: 600px) {
+  .profile_container {
+    grid-template-columns: 1fr;
+  }
+
+  .profile_tabs {
+    flex-direction: row;
+  }
+  .profile_tabs button {
+    width: 100%;
+  }
+}
