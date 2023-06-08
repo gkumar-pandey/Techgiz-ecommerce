@@ -6,7 +6,7 @@ export const addToCart = async (product, dispatchCart) => {
   const encodedToken = JSON.parse(localStorage.getItem("user")).token;
   try {
     const { data, status } = await axios.post(
-      "api/user/cart",
+      "/api/user/cart",
       { product },
       {
         headers: {
