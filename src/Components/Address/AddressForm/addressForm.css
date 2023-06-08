@@ -1,0 +1,24 @@
+.address_form_container {
+  width: 30rem;
+}
+
+.address_form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid lightgray;
+}
+
+.address_form input:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .address_form_container {
+    width: 20rem;
+  }
+  .sm-flex-col {
+    flex-direction: column;
+  }
+}

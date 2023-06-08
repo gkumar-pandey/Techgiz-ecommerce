@@ -1,0 +1,5 @@
+export const SET_ADDRESS = "SET_ADDRESS";
+export const SET_DEFAULT_ADDRESS = "SET_DEFAULT_ADDRESS";
+export const SET_DISCOUNT = "SET_DISCOUNT";
+export const REMOVE_DISCOUNT = "REMOVE_DISCOUNT";
+export const SAVE_ORDER = "SAVE_ORDER";

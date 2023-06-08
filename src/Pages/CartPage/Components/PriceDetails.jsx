@@ -1,5 +1,6 @@
 import React from "react";
 import { MdOutlineDiscount } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const PriceDetails = ({
   handleModal,
@@ -42,7 +43,7 @@ const PriceDetails = ({
           </div>
           <div className="d-flex justify-between items-center my-1 text_bold py-4 total_price ">
             <p>Total Amount</p>
-            <p className="rupee">{totalAmount - discountPrice}</p>
+            <p className="rupee">{totalAmount - discountPrice - 200}</p>
           </div>
           {discountPrice ? (
             <p className="text_green">
@@ -52,7 +53,9 @@ const PriceDetails = ({
           ) : (
             ""
           )}
-          <button className=" solid-btn w-full ">Checkout</button>
+          <Link to={"/checkout"} className="link">
+            <button className=" solid-btn w-full ">Checkout</button>
+          </Link>
         </div>
       </div>
     </div>

@@ -105,8 +105,6 @@ export const ProductsProvider = ({ children }) => {
 
   const productsList = filterProducts();
 
-  console.log(filterState.filterByType);
-
   return (
     <ProductsContext.Provider
       value={{

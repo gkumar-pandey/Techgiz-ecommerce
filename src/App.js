@@ -5,12 +5,15 @@ import { Toaster } from "react-hot-toast";
 import { Navbar, RequireAuth } from "./Components";
 import {
   CartPage,
+  CheckoutPage,
   Home,
   LoginPage,
   ProductDetailsPage,
   ProductsPage,
   SignUpPage,
-  WishlistPage
+  WishlistPage,
+  OrderSummary,
+  Profile
 } from "./Pages";
 
 function App() {
@@ -40,6 +43,30 @@ function App() {
           }
         />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <CheckoutPage />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <RequireAuth>
+              <OrderSummary />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </div>
   );
