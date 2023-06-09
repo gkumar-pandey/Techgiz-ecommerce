@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { WishlistReducer } from "../../Reducer/WishlistReducer/WishlistReducer";
 import { addToWishlist, removeFromWishlist } from "../../Services";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const WishlistContext = createContext();
 
@@ -16,32 +15,22 @@ export const WishlistProvider = ({ children }) => {
     wishlistInitialState
   );
   const navigate = useNavigate();
-
-  const isUserLoggedIn = JSON.parse(localStorage.getItem("user"))?.token;
+  const location = useLocation();
+  const token = JSON.parse(localStorage.getItem("user"))?.token;
 
   const addToWishlistHandler = (product) => {
-    if (isUserLoggedIn) {
-      const res = addToWishlist(product, dispatchWishlist);
-      toast.promise(res, {
-        loading: "Loading...",
-        success: `${product.productName} added to wishlist`,
-        error: "Something went wrong!!"
-      });
+    if (token) {
+      addToWishlist(product, token, dispatchWishlist);
     } else {
-      navigate("/login");
+      navigate("/login", { state: { from: location } });
     }
   };
 
-  const removeFromWishlistHandler = (productId, productName) => {
-    if (isUserLoggedIn) {
-      const res = removeFromWishlist(productId, dispatchWishlist);
-      toast.promise(res, {
-        loading: "Loading...",
-        success: `${productName} removed from wishlist`,
-        error: "Something went wrong!!"
-      });
+  const removeFromWishlistHandler = (product) => {
+    if (token) {
+      removeFromWishlist(product, token, dispatchWishlist);
     } else {
-      navigate("/login");
+      navigate("/login", { state: { from: location } });
     }
   };
 
@@ -50,7 +39,7 @@ export const WishlistProvider = ({ children }) => {
       value={{
         dispatchWishlist,
         wishlistProductState,
-        isUserLoggedIn,
+        token,
         addToWishlistHandler,
         removeFromWishlistHandler
       }}
