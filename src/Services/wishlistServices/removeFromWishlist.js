@@ -1,22 +1,23 @@
 import axios from "axios";
 import { SET_ADD_TO_WISHLIST } from "../../Constant/WishlistConstant/WishlistConstant";
 import { toast } from "react-hot-toast";
-export const removeFromWishlist = async (productId, dispatchWishlist) => {
-  const encodedToken = JSON.parse(localStorage.getItem("user")).token;
+export const removeFromWishlist = async (product, token, dispatchWishlist) => {
   try {
     const { status, data } = await axios.delete(
-      `api/user/wishlist/${productId}`,
+      `/api/user/wishlist/${product._id}`,
       {
-        headers: { authorization: encodedToken }
+        headers: { authorization: token }
       }
     );
 
     if (status === 200) {
       dispatchWishlist({ type: SET_ADD_TO_WISHLIST, payload: data.wishlist });
+      toast.success(`${product.productName} removed from wishlist`);
     } else {
       toast.error("Something went wrong!!");
     }
   } catch (error) {
-    console.log(error);
+    toast.error(error.message);
+    console.log(error.message);
   }
 };

@@ -1,8 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import { WishlistReducer } from "../../Reducer/WishlistReducer/WishlistReducer";
 import { addToWishlist, removeFromWishlist } from "../../Services";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const WishlistContext = createContext();
 
@@ -16,24 +15,22 @@ export const WishlistProvider = ({ children }) => {
     wishlistInitialState
   );
   const navigate = useNavigate();
+  const location = useLocation();
+  const token = JSON.parse(localStorage.getItem("user"))?.token;
 
-  const isUserLoggedIn = JSON.parse(localStorage.getItem("user"))?.token;
-
-  const addToWishlistHandler = async (product) => {
-    if (isUserLoggedIn) {
-      await addToWishlist(product, dispatchWishlist);
-      toast.success(`${product.productName} Added to wishlist`);
+  const addToWishlistHandler = (product) => {
+    if (token) {
+      addToWishlist(product, token, dispatchWishlist);
     } else {
-      navigate("/login");
+      navigate("/login", { state: { from: location } });
     }
   };
 
-  const removeFromWishlistHandler = async (productId, productName) => {
-    if (isUserLoggedIn) {
-      await removeFromWishlist(productId, dispatchWishlist);
-      toast.success(`${productName} removed from wishlist`);
+  const removeFromWishlistHandler = (product) => {
+    if (token) {
+      removeFromWishlist(product, token, dispatchWishlist);
     } else {
-      navigate("/login");
+      navigate("/login", { state: { from: location } });
     }
   };
 
@@ -42,7 +39,7 @@ export const WishlistProvider = ({ children }) => {
       value={{
         dispatchWishlist,
         wishlistProductState,
-        isUserLoggedIn,
+        token,
         addToWishlistHandler,
         removeFromWishlistHandler
       }}

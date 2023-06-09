@@ -2,15 +2,14 @@ import axios from "axios";
 import { SET_ADD_TO_CART } from "../../Constant";
 import { toast } from "react-hot-toast";
 
-export const addToCart = async (product, dispatchCart) => {
-  const encodedToken = JSON.parse(localStorage.getItem("user")).token;
+export const addToCart = async (product, token, dispatchCart) => {
   try {
     const { data, status } = await axios.post(
       "/api/user/cart",
       { product },
       {
         headers: {
-          authorization: encodedToken
+          authorization: token
         }
       }
     );

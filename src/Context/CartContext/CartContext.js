@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer, useState } from "react";
 import { CartReducer } from "../../Reducer/CartReducer/CartReducer";
 import { addToCart, removeFromCart, updateCartItemQty } from "../../Services";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CartContext = createContext();
 const initialCartState = {
@@ -12,20 +12,22 @@ export const CartContextProvider = ({ children }) => {
   const [cartState, dispatchCart] = useReducer(CartReducer, initialCartState);
 
   const navigate = useNavigate();
-  const isUserLoggedIn = JSON.parse(localStorage.getItem("user"))?.token;
+  const isUserLoggedIn = JSON.parse(localStorage.getItem("user"));
+  const location = useLocation();
+  const token = JSON.parse(localStorage.getItem("user"))?.token;
 
   const addToCartHandler = (product) => {
     if (isUserLoggedIn) {
-      addToCart(product, dispatchCart);
+      addToCart(product, token, dispatchCart);
     } else {
-      navigate("/login");
+      navigate("/login", { state: { from: location } });
     }
   };
   const removeFromCartHandler = (product) => {
     if (isUserLoggedIn) {
       removeFromCart(product._id, product.productName, dispatchCart);
     } else {
-      navigate("/login");
+      navigate("/login", { state: { from: location } });
     }
   };
 
