@@ -3,6 +3,7 @@
   position: relative;
   border: 1px solid var(--primary-color);
   border-radius: 0.25rem;
+  overflow: hidden;
 }
 
 .search_bar button {

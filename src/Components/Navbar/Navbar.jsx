@@ -11,6 +11,7 @@ import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
 import { Link, useLocation } from "react-router-dom";
 import Search from "../Search/Search";
 import { useAuth, useCart } from "../../Context";
+import { RESET } from "../../Constant";
 
 const Navbar = () => {
   const [showSideNavbar, setShowNavbar] = useState(false);
@@ -18,11 +19,18 @@ const Navbar = () => {
     wishlistProductState: { products }
   } = useWishlist();
   const { logOutBtnHandler, user } = useAuth();
-  const { cartState } = useCart();
+  const { cartState, dispatchCart } = useCart();
+  const { dispatchWishlist } = useWishlist();
   const location = useLocation();
 
   const HandleSideNavbar = () => {
     setShowNavbar(!showSideNavbar);
+  };
+
+  const handleLogout = () => {
+    logOutBtnHandler();
+    dispatchWishlist({ type: RESET });
+    dispatchCart({ type: RESET });
   };
 
   return (
@@ -64,7 +72,7 @@ const Navbar = () => {
                         Profile
                       </button>
                     </Link>
-                    <button onClick={logOutBtnHandler}>Logout</button>
+                    <button onClick={handleLogout}>Logout</button>
                   </div>
                 </li>
               </>
@@ -72,6 +80,7 @@ const Navbar = () => {
               <>
                 <Link
                   to={"/login"}
+                  state={{ from: location }}
                   className="nav_link link  profile-icon relative"
                 >
                   <AiOutlineUser className="nav_link_icon" />

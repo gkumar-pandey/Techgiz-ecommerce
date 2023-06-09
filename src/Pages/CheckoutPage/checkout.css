@@ -26,6 +26,7 @@
   max-width: 30rem;
   border: 1px solid lightgrey;
   border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .checkout_product_img {
