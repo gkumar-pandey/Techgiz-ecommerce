@@ -76,11 +76,9 @@ export const ProductsProvider = ({ children }) => {
       );
     }
 
-    if (inStock) {
+    if (inStock && !outOfStock) {
       productsAfterFilter = filterByInStock(productsAfterFilter);
-    }
-
-    if (outOfStock) {
+    } else if (outOfStock && !inStock) {
       productsAfterFilter = filterByOutOfStock(productsAfterFilter);
     }
 

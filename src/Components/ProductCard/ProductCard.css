@@ -1,6 +1,7 @@
 .product_card {
   border: 1px solid lightgray;
   border-radius: 0.25rem;
+  width: 100%;
   max-width: 15rem;
   overflow: hidden;
   position: relative;

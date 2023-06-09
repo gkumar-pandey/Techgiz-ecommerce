@@ -16,6 +16,7 @@ const SortByPrice = () => {
     { value: HIGH_TO_LOW, name: "Price (High to Low)" },
     { value: LATEST, name: "Latest" }
   ];
+
   return (
     <div className="filter_heading  ">
       <p>Sort</p>
