@@ -70,7 +70,7 @@ const ProductCard = (props) => {
 
         {isProdAvailableInWishlist ? (
           <AiFillHeart
-            className="wishlist_icon"
+            className="wishlist_icon heart_fill"
             onClick={() => removeFromWishlistHandler(props)}
           />
         ) : (
