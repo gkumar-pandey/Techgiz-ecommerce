@@ -50,7 +50,9 @@ const ProductCard = (props) => {
             {price} <span className="product_old_price">{oldPrice}</span>
           </p>
         </div>
-        {isProdAvailableInCart ? (
+        {!inStock ? (
+          <button className=" solid-btn btn-disable ">Out of stock</button>
+        ) : isProdAvailableInCart ? (
           <Link to={"/cart"} className="link">
             <button className="product_btn d-flex items-center justify-center w-full solid-btn">
               Go to cart

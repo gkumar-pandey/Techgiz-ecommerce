@@ -74,10 +74,15 @@
   right: 0.8rem;
   cursor: pointer;
   color: #858585;
+  transition: all ease-in 0.2s;
 }
 
 .wishlist_icon:hover {
   transform: scale(1.05);
+}
+
+.wishlist_icon.heart_fill {
+  color: red;
 }
 
 .out_of_stock_label {

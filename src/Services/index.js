@@ -9,3 +9,4 @@ export * from "./cartServices/addToCart.js";
 export * from "./cartServices/removeFromCart.js";
 export * from "./cartServices/updateCartItemQty.js";
 export * from "./productsServices/productServices.js";
+export * from "./checkoutServices/checkoutServices.js";

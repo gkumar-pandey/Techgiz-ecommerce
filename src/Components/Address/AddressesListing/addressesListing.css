@@ -1,0 +1,9 @@
+.change_address_container {
+  width: 30rem;
+}
+
+@media (max-width: 600px) {
+  .change_address_container {
+    width: 20rem;
+  }
+}

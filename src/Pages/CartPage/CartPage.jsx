@@ -1,11 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./CartPage.css";
 import PriceDetails from "./Components/PriceDetails";
 import { useCart } from "../../Context/CartContext/CartContext";
 import { Loader, EmptyMsgComp, HorizontalProductCard } from "../../Components";
 import { getCartProducts } from "../../Services";
+import Modal from "../../Components/Modal/Modal";
+import DiscountComp from "./Components/DiscountComp";
+import { useCheckout } from "../../Context";
+import { REMOVE_DISCOUNT, SET_DISCOUNT } from "../../Constant";
 
 const CartPage = () => {
+  const [isApplyDiscount, setIsApplyDiscount] = useState(false);
+
+  const {
+    checkoutState,
+    dispatchCheckout,
+    totalPriceOfCartItems,
+    deliveryCharges,
+    totalProductQty,
+    discountPrice,
+    totalAmount
+  } = useCheckout();
   const {
     dispatchCart,
     cartState: { products, isLoading },
@@ -16,6 +31,19 @@ const CartPage = () => {
       getCartProducts(dispatchCart);
     }
   }, []);
+
+  const handleModal = () => {
+    setIsApplyDiscount(!isApplyDiscount);
+  };
+
+  const handleDiscountCoupon = (e) => {
+    if (e.target.checked) {
+      dispatchCheckout({ type: SET_DISCOUNT, payload: e.target.value });
+    } else {
+      dispatchCheckout({ type: REMOVE_DISCOUNT, payload: e.target.value });
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -35,10 +63,26 @@ const CartPage = () => {
                     ))}
                   </div>
                   <div className=" cart_details  ">
-                    <PriceDetails />
+                    <PriceDetails
+                      totalPrice={totalPriceOfCartItems}
+                      totalAmount={totalAmount}
+                      totalProductQty={totalProductQty}
+                      deliveryCharges={deliveryCharges}
+                      discountPrice={discountPrice}
+                      handleModal={handleModal}
+                    />
                   </div>
                 </div>
               </div>
+              {isApplyDiscount && (
+                <Modal>
+                  <DiscountComp
+                    handleDiscountCoupon={handleDiscountCoupon}
+                    handleModal={handleModal}
+                    discountCoupon={checkoutState.discountCoupon}
+                  />
+                </Modal>
+              )}
             </>
           ) : (
             <>

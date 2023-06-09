@@ -84,5 +84,6 @@
   }
   .priced_details {
     width: 100%;
+    position: relative;
   }
 }

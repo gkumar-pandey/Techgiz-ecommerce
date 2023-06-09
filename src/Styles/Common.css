@@ -34,6 +34,14 @@
   flex-wrap: wrap;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
 /* Grid CSS */
 .grid {
   display: grid;
@@ -137,4 +145,45 @@
 
 .border {
   border: 1px solid red;
+}
+
+.font-semibold {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.font-bold {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.border-lightgrey {
+  border: 1px solid lightgrey;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-lg {
+  border-bottom: 0.5rem;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.san-serif {
+  font-family: sans-serif;
+}
+.text-xs {
+  font-size: 1rem;
+}
+.text-sm {
+  font-size: 1.25rem;
+}
+
+.page-heading {
+  font-weight: bold;
+  color: var(--primary-color);
+  font-family: sans-serif;
+  text-align: center;
+  padding: 1rem;
+  margin: 0.5rem 0.25rem;
 }

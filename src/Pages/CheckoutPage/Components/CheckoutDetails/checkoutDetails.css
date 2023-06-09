@@ -1,0 +1,18 @@
+.order_details {
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+  padding: 2rem 1rem;
+  margin: 1rem 0.5rem;
+}
+
+.order_details .heading {
+  text-align: center;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  text-transform: uppercase;
+}
+.order_details .heading p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}

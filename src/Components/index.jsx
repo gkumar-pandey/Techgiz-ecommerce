@@ -7,6 +7,9 @@ import Loader from "./Loader/Loader";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import Rating from "./Rating/Rating";
 import RequireAuth from "./RequireAuth/RequireAuth";
+import AddressCard from "./Address/AddressCard/AddressCard";
+import AddressListing from "./Address/AddressesListing/AddressesListing";
+import AddressForm from "./Address/AddressForm/AddressForm";
 
 export {
   Navbar,
@@ -17,5 +20,8 @@ export {
   Loader,
   ProductDetails,
   Rating,
-  RequireAuth
+  RequireAuth,
+  AddressCard,
+  AddressListing,
+  AddressForm
 };

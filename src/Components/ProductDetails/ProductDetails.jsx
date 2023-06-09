@@ -49,7 +49,7 @@ const ProductDetails = ({ product }) => {
             <p className="inclusive_text my-1 ">Price inclusive of all taxes</p>
             <div className="product_details_btn">
               {!product?.inStock ? (
-                <button className="solid-btn">Out of stock</button>
+                <button className="solid-btn btn-disable ">Out of stock</button>
               ) : isProductInCart ? (
                 <Link to={"/cart"} className="link">
                   <button className="solid-btn d-flex items-center justify-center ">

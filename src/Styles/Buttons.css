@@ -16,6 +16,10 @@
   border: none;
 }
 
+.btn-disable {
+  opacity: 0.8;
+}
+
 .solid-btn:hover {
   background-color: var();
 }

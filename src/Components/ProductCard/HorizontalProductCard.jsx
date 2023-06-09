@@ -1,13 +1,27 @@
 import React from "react";
 import "./ProductCard.css";
-import { useCart } from "../../Context";
+import { useCart, useWishlist } from "../../Context";
 import { Link } from "react-router-dom";
+
+import { getProductById } from "../../Utils";
 
 const HorizontalProductCard = (props) => {
   const { removeFromCartHandler, updateCartQtyHandler } = useCart();
+  const { addToWishlistHandler, wishlistProductState } = useWishlist();
 
   const { productName, image, alt, price, oldPrice, discount, _id, qty } =
     props;
+  const isProductInWishlist = getProductById(
+    wishlistProductState.products,
+    _id
+  );
+
+  const handleMoveToWishlist = (product) => {
+    removeFromCartHandler(product);
+    if (!isProductInWishlist) {
+      addToWishlistHandler(product);
+    }
+  };
   return (
     <div className="horizontal_product m-1 ">
       <div className="horizontal_product_wrapper d-flex ">
@@ -32,7 +46,10 @@ const HorizontalProductCard = (props) => {
                 onClick={() =>
                   updateCartQtyHandler(_id, productName, "decrement")
                 }
-                className=" inc_dec_btn d-flex items-center justify-center cursor-pointer "
+                disabled={qty === 1}
+                className={` inc_dec_btn d-flex items-center justify-center cursor-pointer ${
+                  qty === 1 && "btn-disable"
+                } `}
               >
                 -
               </button>
@@ -48,10 +65,18 @@ const HorizontalProductCard = (props) => {
             </div>
           </div>
           <div className="horizontal_product_btn d-flex flex-wrap ">
-            <button className=" solid-btn mr-2"> Add to Wishlist</button>
+            <button
+              className=" solid-btn mr-2"
+              onClick={() => handleMoveToWishlist(props)}
+            >
+              {" "}
+              Move to Wishlist
+            </button>
             <button
               className=" outlined-btn"
-              onClick={() => removeFromCartHandler(props)}
+              onClick={() => {
+                removeFromCartHandler(props);
+              }}
             >
               Remove from cart
             </button>
