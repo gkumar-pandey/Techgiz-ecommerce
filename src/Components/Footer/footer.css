@@ -2,13 +2,12 @@
   background-color: var(--primary-color);
   color: #fff;
   padding: 1rem;
-  /* position: sticky; */
   bottom: 0;
   left: 0;
   width: 100%;
 }
 
-.link {
+.footer .link {
   text-decoration: none;
   color: #fff;
   margin: 0.5rem;
