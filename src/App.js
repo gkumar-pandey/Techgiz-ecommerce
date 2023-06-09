@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { Navbar, RequireAuth } from "./Components";
 import {
@@ -15,8 +15,10 @@ import {
   OrderSummary,
   Profile
 } from "./Pages";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
+  const location = useLocation();
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
@@ -68,6 +70,7 @@ function App() {
           }
         />
       </Routes>
+      {location.pathname === "/" && <Footer />}
     </div>
   );
 }
