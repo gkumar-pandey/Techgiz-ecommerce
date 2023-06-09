@@ -5,7 +5,7 @@ export const getWishlistProducts = async (dispatchWishlist) => {
   const encodedToken = JSON.parse(localStorage.getItem("user")).token;
 
   try {
-    const { data, status } = await axios.get("api/user/wishlist", {
+    const { data, status } = await axios.get("/api/user/wishlist", {
       headers: {
         authorization: encodedToken
       }
