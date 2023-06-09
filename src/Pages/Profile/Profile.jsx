@@ -4,6 +4,7 @@ import { useAuth, useCheckout } from "../../Context";
 import ProfileCard from "../../Components/Profile/ProfileCard";
 import { AddressCard, AddressForm, AddressListing } from "../../Components";
 import Modal from "../../Components/Modal/Modal";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const Profile = () => {
   const [selectedTab, setSelectedTab] = useState("profile");
@@ -24,6 +25,7 @@ const Profile = () => {
     handleEditAddress,
     setAddressFormData
   } = useCheckout();
+  useDocumentTitle("Profile");
 
   const handleAddressFormBtn = () => {
     setAddressFormData("");

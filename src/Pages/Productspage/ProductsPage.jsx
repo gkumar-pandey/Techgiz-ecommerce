@@ -13,11 +13,13 @@ import FilterByRating from "../../Components/Filter/Components/FilterByRating";
 import PriceRange from "../../Components/Filter/Components/PriceRange";
 import { useProducts } from "../../Context";
 import { RESET_FILTER } from "../../Constant/FilterConstant/FilterConstant";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const ProductsPage = () => {
   const [sortBtn, setSortBtn] = useState(false);
   const [filterBtn, setFilterBtn] = useState(false);
   const { dispatchFilter } = useProducts();
+  useDocumentTitle("Products");
   return (
     <div className="products_page">
       <div className="md_search">

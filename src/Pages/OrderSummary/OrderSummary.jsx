@@ -2,11 +2,13 @@ import React from "react";
 import { useCheckout } from "../../Context";
 import { AddressCard } from "../../Components";
 import CheckoutProductCard from "../../Components/ProductCard/CheckoutProductCard";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const OrderSummary = () => {
   const {
     checkoutState: { orders }
   } = useCheckout();
+  useDocumentTitle("Order");
 
   const {
     orderId,

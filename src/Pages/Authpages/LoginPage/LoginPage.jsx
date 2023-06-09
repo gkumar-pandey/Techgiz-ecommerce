@@ -10,6 +10,7 @@ import {
   SET_LOGIN_EMAIL,
   SET_LOGIN_PASSWORD
 } from "../../../Constant/index.js";
+import useDocumentTitle from "../../../hook/useDocumentTitle";
 
 const LoginPage = () => {
   const {
@@ -23,6 +24,7 @@ const LoginPage = () => {
     loginHandler
   } = useAuth();
 
+  useDocumentTitle("Login");
   //* guest user obj for test credential login */
   const guestUser = {
     email: "gautamshekhar078@gmail.com",

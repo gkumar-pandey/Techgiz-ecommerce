@@ -5,6 +5,7 @@ import CheckoutDetails from "./Components/CheckoutDetails/CheckoutDetails";
 import Modal from "../../Components/Modal/Modal";
 import { AddressCard, AddressListing, AddressForm } from "../../Components";
 import CheckoutProductCard from "../../Components/ProductCard/CheckoutProductCard";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const CheckoutPage = () => {
   const { cartState } = useCart();
@@ -13,6 +14,7 @@ const CheckoutPage = () => {
   } = useCheckout();
   const [openChangeAddress, setOpenChangeAddress] = useState(false);
   const [openAddressForm, setOpenAddressForm] = useState(false);
+  useDocumentTitle("Checkout");
 
   const handleAddressFormModal = () => {
     setOpenAddressForm(!openAddressForm);

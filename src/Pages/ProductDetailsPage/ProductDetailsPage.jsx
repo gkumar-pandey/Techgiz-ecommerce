@@ -4,11 +4,13 @@ import "./ProductDetails.css";
 import { getSingleProduct } from "../../Services";
 import { Loader, ProductDetails } from "../../Components";
 import SimilarProdComp from "./Components/SimilarProdComp";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const ProductDetailsPage = () => {
   const [product, setProduct] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
+  useDocumentTitle("Product Details");
 
   window.scrollTo(0, 0);
 
