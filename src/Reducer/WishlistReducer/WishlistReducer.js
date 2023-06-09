@@ -1,3 +1,4 @@
+import { RESET } from "../../Constant";
 import {
   REMOVE_FROM_WISHLIST,
   SET_ADD_TO_WISHLIST
@@ -12,7 +13,12 @@ export const WishlistReducer = (state, { type, payload }) => {
         ...state,
         products: state.products.filter((product) => product._id !== payload)
       };
+    case RESET:
+      return {
+        products: [],
+        isLoading: false
+      };
     default:
-      break;
+      return { ...state };
   }
 };

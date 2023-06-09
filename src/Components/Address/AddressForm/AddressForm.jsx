@@ -21,8 +21,10 @@ const AddressForm = ({ handleAddressFormModal }) => {
     e.preventDefault();
     if (isAddressExist(addressFormData._id)) {
       handleUpdateAddress(addressFormData);
+      handleAddressFormModal();
     } else {
       handleAddAddress(addressFormData);
+      handleAddressFormModal();
     }
   };
   return (

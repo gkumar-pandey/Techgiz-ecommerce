@@ -7,6 +7,7 @@ const MainComp = () => {
   const [currPage, setCurrPage] = useState(1);
   const { productsList, isLoading } = useProducts();
 
+  window.scroll(0, 0);
   //! Pagination logic implemented
   const pages = [];
   for (let i = 1; i <= Math.ceil(productsList.length / 9); i++) {

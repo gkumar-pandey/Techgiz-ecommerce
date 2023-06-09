@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
 import { getProductById } from "../../Utils";
-import { useCart } from "../../Context";
+import { useAuth, useCart } from "../../Context";
 import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
@@ -30,6 +30,7 @@ const ProductCard = (props) => {
     wishlistProductState: { products }
   } = useWishlist();
   const { cartState, addToCartHandler } = useCart();
+  const { isUserLoggedIn } = useAuth();
 
   const isProdAvailableInWishlist = getProductById(products, _id);
   const isProdAvailableInCart = getProductById(cartState.products, _id);
@@ -68,7 +69,7 @@ const ProductCard = (props) => {
           </button>
         )}
 
-        {isProdAvailableInWishlist ? (
+        {isProdAvailableInWishlist && isUserLoggedIn ? (
           <AiFillHeart
             className="wishlist_icon heart_fill"
             onClick={() => removeFromWishlistHandler(props)}

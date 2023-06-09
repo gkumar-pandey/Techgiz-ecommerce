@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { CartReducer } from "../../Reducer/CartReducer/CartReducer";
 import { addToCart, removeFromCart, updateCartItemQty } from "../../Services";
 import { useLocation, useNavigate } from "react-router-dom";
