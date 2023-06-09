@@ -7,6 +7,9 @@ export const bannerImg2 =
 export const bannerImg3 =
   "https://res.cloudinary.com/dlykup1dh/image/upload/v1684503669/TechGiz/banner-img-3.webp";
 
+export const logo =
+  "https://res.cloudinary.com/dlykup1dh/image/upload/v1686349073/TechGiz/logo.png";
+
 export const TopBrands = [
   {
     name: "JBL",

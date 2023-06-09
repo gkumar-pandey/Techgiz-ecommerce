@@ -8,9 +8,11 @@ import Modal from "../../Components/Modal/Modal";
 import DiscountComp from "./Components/DiscountComp";
 import { useCheckout } from "../../Context";
 import { REMOVE_DISCOUNT, SET_DISCOUNT } from "../../Constant";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const CartPage = () => {
   const [isApplyDiscount, setIsApplyDiscount] = useState(false);
+  useDocumentTitle("Cart");
 
   const {
     checkoutState,

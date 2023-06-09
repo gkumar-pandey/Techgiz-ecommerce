@@ -12,6 +12,7 @@ import {
   SET_PASSWORD
 } from "../../../Constant";
 import { useAuth } from "../../../Context";
+import useDocumentTitle from "../../../hook/useDocumentTitle";
 
 const SignUpPage = () => {
   const {
@@ -23,6 +24,7 @@ const SignUpPage = () => {
     dispatchUser,
     signupHandler
   } = useAuth();
+  useDocumentTitle("SignUp");
 
   return (
     <div className="d-flex justify-center items-center signup_form_container">

@@ -11,9 +11,11 @@ import {
   SET_FILTER_BY_BRAND,
   SET_FILTER_BY_TYPE
 } from "../../Constant/FilterConstant/FilterConstant";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const Home = () => {
   const { dispatchFilter } = useProducts();
+  useDocumentTitle("Home");
 
   const handleBanner = (brand, category) => {
     dispatchFilter({ type: RESET_FILTER });

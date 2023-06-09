@@ -5,6 +5,7 @@ import { useWishlist } from "../../Context/WishlistContext/WishlistContext";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import { Link } from "react-router-dom";
 import { getWishlistProducts } from "../../Services";
+import useDocumentTitle from "../../hook/useDocumentTitle";
 
 const WishlistPage = () => {
   const {
@@ -12,6 +13,7 @@ const WishlistPage = () => {
     dispatchWishlist,
     isUserLoggedIn
   } = useWishlist();
+  useDocumentTitle("Wishlist");
 
   useEffect(() => {
     if (isUserLoggedIn) {
