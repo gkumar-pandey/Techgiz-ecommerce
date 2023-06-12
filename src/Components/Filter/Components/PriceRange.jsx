@@ -9,7 +9,7 @@ import {
 const PriceRange = () => {
   const {
     dispatchFilter,
-    filterState: { filterByInStock, filterByOutOfStock, maxRange }
+    filterState: { inStock, outOfStock, maxRange }
   } = useProducts();
 
   return (
@@ -24,7 +24,7 @@ const PriceRange = () => {
                 payload: e.target.checked
               })
             }
-            checked={filterByInStock}
+            checked={inStock}
             type="checkbox"
           />{" "}
           In Stock
@@ -38,7 +38,7 @@ const PriceRange = () => {
                 payload: e.target.checked
               })
             }
-            checked={filterByOutOfStock}
+            checked={outOfStock}
           />{" "}
           Out Of Stock
         </label>
