@@ -51,8 +51,8 @@ export const FilterReducer = (state, { type, payload }) => {
         sortBy: "",
         filterByType: [],
         filterByBrand: [],
-        filterByInStock: false,
-        filterByOutOfStock: false,
+        inStock: false,
+        outOfStock: false,
         rating: 0,
         searchQuery: "",
         maxRange: 20000
