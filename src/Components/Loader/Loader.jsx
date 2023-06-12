@@ -16,7 +16,7 @@ const Loader = () => {
         wrapperClass="blocks-wrapper"
         colors={["#302f34"]}
       />
-      <h1 className=" m-1 ">Loading....</h1>
+      <h3 className=" m-1 ">Loading....</h3>
     </div>
   );
 };

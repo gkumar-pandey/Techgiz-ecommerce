@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useProducts } from "../../../Context";
 import ProductCard from "../../../Components/ProductCard/ProductCard";
-import { Pagination } from "../../../Components/index";
+import { Loader, Pagination } from "../../../Components/index";
 
 const MainComp = () => {
   const [currPage, setCurrPage] = useState(1);
@@ -30,7 +30,7 @@ const MainComp = () => {
     <>
       {isLoading ? (
         <div className="d-flex  items-center justify-center loading ">
-          <h2>Loading...</h2>
+          <Loader />
         </div>
       ) : Products.length === 0 ? (
         <div className="d-flex  items-center justify-center loading ">
