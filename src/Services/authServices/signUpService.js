@@ -2,7 +2,7 @@ import axios from "axios";
 import { RESET, SET_SIGNUP_ERROR } from "../../Constant";
 import { toast } from "react-hot-toast";
 
-export const signupService = async (user, dispatchUser) => {
+export const signupService = async (user, dispatchUser, setUser) => {
   const { firstName, lastName, email, password } = user;
   try {
     const { data, status } = await axios.post(`/api/auth/signup`, {
@@ -16,10 +16,13 @@ export const signupService = async (user, dispatchUser) => {
       dispatchUser({ type: RESET });
       const userDetails = {
         token: data.encodedToken,
-        firstName: data.createdUser.firstName,
-        email: data.createdUser.email
+        user: {
+          firstName: data.createdUser.firstName,
+          email: data.createdUser.email
+        }
       };
       localStorage.setItem("user", JSON.stringify(userDetails));
+      setUser(userDetails);
       toast.success("signup successfully");
     } else {
       toast.error("Something went wrong!");

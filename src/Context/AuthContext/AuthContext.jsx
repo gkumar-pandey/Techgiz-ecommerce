@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
       dispatchUser({ type: SET_SIGNUP_ERROR, payload: "" });
       await signupService(userState.signUpUser, dispatchUser, setUser);
       dispatchUser({ type: LOADING, payload: false });
-      navigate(location?.state?.from?.pathname);
+      navigate("/");
     } else {
       dispatchUser({ type: LOADING, payload: false });
     }
