@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useProducts } from "../../../Context";
 import ProductCard from "../../../Components/ProductCard/ProductCard";
 import { Loader, Pagination } from "../../../Components/index";
 
 const MainComp = () => {
   const [currPage, setCurrPage] = useState(1);
-  const { productsList, isLoading } = useProducts();
+  const { productsList, isLoading, filterState } = useProducts();
 
   window.scroll(0, 0);
   //! Pagination logic implemented
@@ -25,6 +25,10 @@ const MainComp = () => {
       setCurrPage(pageNumber);
     }
   };
+
+  useEffect(() => {
+    setCurrPage(1);
+  }, [filterState]);
 
   return (
     <>
