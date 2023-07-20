@@ -27,7 +27,7 @@ const CategoryCard = () => {
       <h2 className="d-flex justify-center my-2 py-4 brand_heading">
         Shop By Category
       </h2>
-      <div className="d-flex flex-row justify-evenly my-2 flex-wrap">
+      <div className="d-flex flex-row justify-center my-2  flex-wrap">
         {category.map(({ categoryName, _id, img }) => (
           <Link
             to={"/products"}
