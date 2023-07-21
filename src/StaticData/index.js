@@ -28,3 +28,6 @@ export const TopBrands = [
     img: "https://res.cloudinary.com/dlykup1dh/image/upload/v1684531009/TechGiz/mivi-logo.svg"
   }
 ];
+
+export const Error404Img =
+  "https://res.cloudinary.com/dlykup1dh/image/upload/v1689961600/TechGiz/404_Error.jpg";
