@@ -13,7 +13,8 @@ import {
   SignUpPage,
   WishlistPage,
   OrderSummary,
-  Profile
+  Profile,
+  ErrorPage
 } from "./Pages";
 import Footer from "./Components/Footer/Footer";
 
@@ -69,6 +70,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       {location.pathname === "/" && <Footer />}
     </div>
