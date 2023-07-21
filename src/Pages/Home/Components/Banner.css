@@ -7,10 +7,9 @@
   top: 70%;
   left: 10%;
   padding: 0.6rem 1.5rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   font-size: 1.4rem;
   font-weight: 600;
-  border-radius: 1rem;
   font-family: sans-serif;
   border: none;
   transition: all ease-in 0.2s;
@@ -20,7 +19,6 @@
   background-color: var(--primary-color);
   color: #fff;
   border: 1px solid #fff;
-  transform: scale(1.05);
 }
 
 @media (max-width: 48rem) {

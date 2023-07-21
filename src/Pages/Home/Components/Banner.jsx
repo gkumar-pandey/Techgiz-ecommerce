@@ -4,6 +4,7 @@ import "./Banner.css";
 import { Link } from "react-router-dom";
 import { RESET_FILTER } from "../../../Constant/FilterConstant/FilterConstant";
 import { useProducts } from "../../../Context";
+import { AiOutlineShopping } from "react-icons/ai";
 
 const Banner = () => {
   const { dispatchFilter } = useProducts();
@@ -15,7 +16,7 @@ const Banner = () => {
           to={"/products"}
           onClick={() => dispatchFilter({ type: RESET_FILTER })}
         >
-          <button className="shop_now_btn absolute cursor-pointer ">
+          <button className="shop_now_btn absolute cursor-pointer    ">
             Shop now
           </button>
         </Link>
