@@ -39,10 +39,12 @@ const WishlistPage = () => {
           <>
             <div className="d-flex justify-center items-center flex-col wishlist_empty_text ">
               <h2>Your wishlist is empty.</h2>
-              <p>
-                Explore more products,{" "}
-                <Link to={"/products"}>Continue Shopping</Link>
-              </p>
+              <p>Explore more products</p>
+              <Link to={"/products"}>
+                <button className=" outlined-btn text-uppercase ">
+                  Continue Shopping
+                </button>
+              </Link>
             </div>
           </>
         )}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { RxCross2 } from "react-icons/rx";
 import "./addressForm.css";
 import { useCheckout } from "../../../Context";
@@ -100,7 +100,7 @@ const AddressForm = ({ handleAddressFormModal }) => {
         </div>
         <div>
           <button
-            className=" solid-btn w-full"
+            className="solid-btn w-full"
             type="button"
             onClick={handleDummyAddressBtn}
           >

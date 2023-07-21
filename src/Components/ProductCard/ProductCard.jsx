@@ -39,8 +39,9 @@ const ProductCard = (props) => {
     <>
       <div className="product_card px-1 d-flex flex-col justify-between ">
         <Link to={`/product/${_id}`}>
-          <div className="product_img_container">
+          <div className="product_img_container relative  ">
             <img className="product_img" src={image} alt={alt} />
+            <p className="product_card_rating ">{rating}</p>
           </div>
         </Link>
 
