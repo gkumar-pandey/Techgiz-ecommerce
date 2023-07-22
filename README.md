@@ -1,15 +1,7 @@
-<div style="text-align:center;" >
-<img src='https://res.cloudinary.com/dlykup1dh/image/upload/v1686349272/TechGiz/logo2.jpg' style="border-radius:50%" height="200px"    >
-</div>
+<img src="https://res.cloudinary.com/dlykup1dh/image/upload/v1690015711/TechGiz/techgiz-logo.png" width="200px"  >
 
 <div style='text-align:center' >
 <h1>TechGiz</h1>
-</div>
-
-<div style="width:100%; " >
- <video controls >
-  <source src='https://res.cloudinary.com/dlykup1dh/video/upload/v1690013524/Project%20Gif/TechGiz___Home_1_bjngfo.mp4' type="video/mp4" >
- </video>
 </div>
 
 ## Table of content
