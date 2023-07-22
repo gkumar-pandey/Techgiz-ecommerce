@@ -35,7 +35,7 @@
 
 ## 🚀 Live Link
 
-- [TechGiz-E-commerce](https://mockbee.netlify.app/)
+- [TechGiz-E-commerce](https://techgiz-ecommerce.vercel.app/)
 
 ## 🧑‍💻 Features
 
