@@ -25,6 +25,7 @@ const CheckoutDetails = () => {
   const { user } = useAuth();
 
   const navigate = useNavigate();
+  const discount = 200;
 
   const loadScript = (src) => {
     return new Promise((resolve) => {
@@ -48,7 +49,7 @@ const CheckoutDetails = () => {
 
     const options = {
       key: "rzp_test_Q4WcLMWlIe6qSa",
-      amount: (totalAmount - discountPrice) * 100,
+      amount: (totalAmount - discountPrice - discount) * 100,
       currency: "INR",
       name: "TechGiz Ecommerce",
       description: "Enjoy the products & thanks for shopping with us.",
@@ -62,8 +63,8 @@ const CheckoutDetails = () => {
             orderId: uuid(),
             paymentId: razorpay_payment_id,
             date: getDate(),
-            totalAmount,
-            discountPrice,
+            totalAmount: totalAmount - discount - discountPrice,
+            discountPrice: discount + discountPrice,
             deliveryCharges,
             totalPriceOfCartItems,
             address: defaultAddress,
@@ -105,7 +106,7 @@ const CheckoutDetails = () => {
           </div>
           <div className=" d-flex items-center justify-between my-1 ">
             <p>Discount</p>
-            <p>-₹200</p>
+            <p>-₹{discount}</p>
           </div>
           <div className=" d-flex items-center justify-between my-1 ">
             <p>Delivery Charges</p>
@@ -118,7 +119,7 @@ const CheckoutDetails = () => {
         </div>
         <div className=" d-flex items-center justify-between font-bold  ">
           <p>Total Amount</p>
-          <p>₹{totalAmount}</p>
+          <p>₹{totalAmount - discount - discountPrice}</p>
         </div>
         <div className="heading p-1 my-2 ">
           <p>Deliver to</p>
