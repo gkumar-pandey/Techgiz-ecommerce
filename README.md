@@ -1,4 +1,6 @@
-<img src="https://res.cloudinary.com/dlykup1dh/image/upload/v1690015711/TechGiz/techgiz-logo.png" width="200px"  >
+<p align="center" >
+<img src="https://res.cloudinary.com/dlykup1dh/image/upload/v1690015711/TechGiz/techgiz-logo.png" width="200px"   >
+</p>
 
 <div style='text-align:center' >
 <h1>TechGiz</h1>
