@@ -2,8 +2,12 @@
 <img src="https://res.cloudinary.com/dlykup1dh/image/upload/v1690015711/TechGiz/techgiz-logo.png" width="200px"   >
 </p>
 
-<div style='text-align:center' >
+<div align="center" >
 <h1>TechGiz</h1>
+</div>
+
+<div align="center"  >
+  <img src="https://res.cloudinary.com/dlykup1dh/image/upload/v1690013228/Project%20Gif/Techgiz_big2ck.gif" >
 </div>
 
 ## Table of content
